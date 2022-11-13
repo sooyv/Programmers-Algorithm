@@ -1,0 +1,7 @@
+function solution(array, height) {
+    let sum = 0;
+    array.forEach((comparedHeight) => {
+        sum = comparedHeight > height && sum + 1;        
+    });
+    return +sum;
+}
