@@ -1,0 +1,7 @@
+function solution(numbers) {
+    let answer = [];
+    return answer = numbers.map(number => {
+        numbers.push(number)
+            return (number * 2);
+     });
+}
