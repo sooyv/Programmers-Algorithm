@@ -1,0 +1,8 @@
+function solution(my_string, letter) {
+    var answer = '';
+    let arr = my_string.split('');
+    let filtered = arr.filter((char) => letter != char);
+    answer = filtered.join('');
+
+    return answer;
+}
