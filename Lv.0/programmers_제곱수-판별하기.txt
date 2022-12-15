@@ -1,0 +1,8 @@
+function solution(n) {
+    //숫자의 제곱근을 판별하는 Math.sqrt 사용
+    //Number.isInteger()를 사용하여 주어진 값이 정수인지 판별
+    //삼항연산자를 통해 조건이 참일 경우 1, 아니라면 2
+    
+    var answer = Number.isInteger(Math.sqrt(n)) ? 1 : 2;
+    return answer;
+}
