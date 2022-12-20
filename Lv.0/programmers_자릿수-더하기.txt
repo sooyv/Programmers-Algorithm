@@ -1,0 +1,5 @@
+function solution(n) {
+    let arr = (n + '').split('');
+    let answer = arr.reduce((sum, num) => +sum + +num, 0);
+    return answer;
+}
