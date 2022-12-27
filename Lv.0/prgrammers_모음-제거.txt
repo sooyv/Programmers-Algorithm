@@ -1,0 +1,6 @@
+function solution(my_string) {
+    let arr = my_string.split('');
+    let answer = arr.filter((item) => item != "a" && item != "e" 
+               && item != "i" && item != "o" && item != "u").join('');
+    return answer;
+}
