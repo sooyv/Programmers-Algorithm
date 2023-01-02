@@ -1,0 +1,19 @@
+function solution(rsp) {        // rsp = "205"
+    let arr = rsp.split('');    // ['2', '0', '5']
+    let changeArr = [];
+    arr.forEach((num) => {
+        if (num == "2") {
+            changeArr.push("0");
+        } else if (num == "0") {
+            changeArr.push("5");
+        } else if (num == "5") {
+            changeArr.push("2");
+        }  
+    });
+    return changeArr.join('');
+}
+
+// forEach()를 통해 arr 배열 순회
+// 순회하는 배열(arr)의 num이 2라면 -> 0으로
+//                        0 -> 5
+//                        5 -> 2 로 changeArr에 push
