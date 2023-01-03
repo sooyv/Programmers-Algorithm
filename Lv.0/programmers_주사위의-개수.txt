@@ -1,0 +1,11 @@
+function solution(box, n) {
+    // box = [10, 8, 6], n = 3
+    let width = parseInt(box[0] / n);       // 3
+    let height = parseInt(box[1] / n);      // 2
+    let length = parseInt(box[2] / n);      // 2
+    
+    return width * height * length;
+}
+
+// 상자의 크기가 가로 10, 세로, 8, 높이 6
+// 모서리 길이가 3인 주사위는 12개 들어갈 수 있음
