@@ -1,0 +1,11 @@
+function solution(my_string) {
+    var answer = [];
+    for (char of my_string) {
+        if (isFinite(char)) answer.push(+char);
+    }
+    return answer.sort((a, b) => a - b);
+}
+
+// for of 문을 사용하여 my_string 이터러블을 순회하며 변수를 char에 할당
+// isFinite를 사용해서 유한수를 answer에 push
+// sort()를 통해 오름차순으로 정리
