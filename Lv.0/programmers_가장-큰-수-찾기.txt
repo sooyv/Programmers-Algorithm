@@ -1,0 +1,4 @@
+function solution(array) {
+    let max = Math.max(...array);       // 8    array 배열에서 최댓값
+    return [max, array.indexOf(max)];   // 최댓값 max, indexOf()를 이용해 array배열의 첫번째 해당 값을 반환 
+}                                      
