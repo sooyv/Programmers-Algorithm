@@ -1,0 +1,11 @@
+function solution(numbers, direction) {
+    
+    if (direction == "left") {
+        let sNum = numbers.shift();      // shift()를 사용하여 numbers 배열의 맨 앞의 값을 제거하고,
+            numbers.push(sNum);          // 제거한 num을 push()로 배열의 맨 뒤에 추가해 left 방향으로 한 칸 회전
+    } else if (direction == "right") {
+        let pNum = numbers.pop();        // pop()을 사용하여 numbers 배열의 맨 끝에 값을 제거하고,
+            numbers.unshift(pNum);       // 제거한 num을 unshift()로 배열의 맨 앞에 추가해 right 방향으로 한 칸 회전
+    }
+    return numbers;
+}
