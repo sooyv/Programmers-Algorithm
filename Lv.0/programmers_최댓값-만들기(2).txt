@@ -1,0 +1,11 @@
+function solution(numbers) {
+    let arr = [];
+    for (let i = 0; i < numbers.length; i++) {               
+        for (let j = 0; j < numbers.length; j++) {      
+            if (i !== j) {                                 
+                arr.push(numbers[i] * numbers[j]);       // arr에 배열을 모두 순회하며 곱한 수들을 push    
+            }                                              
+        }
+    }
+    return Math.max(...arr);            // 담긴 배열을 ...arr로 풀고, 그 중 최댓값을 return
+}
