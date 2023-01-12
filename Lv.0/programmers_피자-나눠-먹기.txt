@@ -1,7 +1,0 @@
-function solution(n) {                  // *모두 같은 수의 피자 조각을 먹어야 한다*
-    let pizza = 6;                      // pizza 6조각
-    while(pizza % n !== 0) {            // pizza을 n명으로 나눴을때 나머지가 0이 아니라면,
-        pizza += 6;                     // pizza에 6을 더해서(한판 추가) 나누어 떨어질때까지 while문
-    }
-    return pizza / 6;
-}
