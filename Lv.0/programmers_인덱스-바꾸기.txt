@@ -1,0 +1,13 @@
+// 조건 
+// my_string = "hello", "I love you"	
+// num1 = 1, num2 = 3 / num1 = 3, num2 = 6
+
+function solution(my_string, num1, num2) {
+    // ['I', ' ', 'l', 'o', 'v', 'e', ' ', 'y', 'o', 'u'] -> 공백까지 
+    let arr = (my_string).split(''); 
+    
+    // arr배열의 num1 = 3, 3번째 인덱스 "o"와 num2 = 6, 6번째 인덱스 " "(공백)을 바꾼다
+    [arr[num1], arr[num2]] = [arr[num2], arr[num1]];
+    
+    return arr.join('');         // "I l veoyou"
+}
