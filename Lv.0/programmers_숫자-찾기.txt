@@ -1,0 +1,8 @@
+function solution(num, k) {
+    // num = 29183 -> ['2', '9', '1', '8', '3']
+    // 그 중 indexOf()를 사용하여 k가 해당하는 인덱스를 찾는다.  // k = 1 , k는 인덱스 2번
+    // 인덱스는 0부터 카운트 되기 때문에 +1 
+    // 삼항 연산자를 사용하여 맞다면 자리 수를 return하고 없다면 -1을 return한다.
+    return [...String(num)].indexOf(String(k)) + 1 
+                ? [...String(num)].indexOf(String(k)) + 1  : -1
+}
