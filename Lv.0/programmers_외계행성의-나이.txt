@@ -1,0 +1,16 @@
+function solution(age) {
+    // object로 각 숫자에 해당하는 알파벳
+    let alpabet = {"0": "a", 
+                   "1": "b", 
+                   "2": "c", 
+                   "3": "d", 
+                   "4": "e", 
+                   "5": "f", 
+                   "6": "g", 
+                   "7": "h", 
+                   "8": "i", 
+                   "9": "j"}
+//                  ['2', '3'].map을 통해 alpabet[] 해당 인덱스로 변환 후 join('')
+    let answer = [...String(age)].map((ele) => alpabet[ele]).join('');
+    return answer;
+}
