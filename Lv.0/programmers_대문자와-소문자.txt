@@ -1,0 +1,9 @@
+const solution = my_string => [...my_string].map(a => a.charCodeAt() >= 65 && a.charCodeAt() < 97 ? a.toLowerCase() : a.toUpperCase()).join("")
+
+// charCodeAt() 메서드는 주어진 인덱스에 대한 UTF-16 코드를 나타내는 0부터 65535 사이의 정수를 반환.
+// a.charCodeAt()이 65보다 크고(대문자), 97보다 작으면(소문자) toLowerCase() 그렇지 않으면 toUpperCase() 
+
+//다른 풀이
+function solution(my_string) {
+    return my_string.split('').map(n => n === n.toUpperCase() ? n.toLowerCase() : n.toUpperCase()).join('')
+}
