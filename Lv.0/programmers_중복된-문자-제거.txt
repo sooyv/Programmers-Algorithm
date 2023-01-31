@@ -1,0 +1,7 @@
+function solution(my_string) {
+    let answer = [...my_string].filter((a, i) => my_string.indexOf(a) === i).join("");
+    return answer;
+}
+
+// ['p', 'e', 'o', 'p', 'l', 'e']에서 filter()와 indexOf()를 통해 같은 것을 제외한 배열을 반환
+// 반환 된 배열을 join()
