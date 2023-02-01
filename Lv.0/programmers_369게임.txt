@@ -1,0 +1,10 @@
+function solution(order) {
+//  order를 문자열, split()
+//  ['2', '9', '4', '2', '3']
+    let arr = String(order).split('');
+//  filter()로 '3','6','9'가 includes되어 있는지 확인하고 answer에 넣어줌
+    let answer = arr.filter(x => ['3','6','9'].includes(x));
+    return answer.length;
+}
+
+// 369마다 박수를 치기 때문에 박수 횟수 = 369의 갯수
