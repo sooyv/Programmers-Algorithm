@@ -1,0 +1,15 @@
+function solution(n) {
+    let answer = 1;
+    // for문을 통해 n이 될때까지 i를 곱한다.
+    for(let i = 1; i <= n; i++){
+        answer *= i;
+        // answer와 n이 같으면, 곱한 수 i를 return
+        if(answer === n) {
+            return i;
+        }
+        // answer가 n을 넘어가면, n이하의 최대 팩토리얼인 i를 return
+        else if (answer > n) {
+            return (i - 1);
+        }
+    }
+}
