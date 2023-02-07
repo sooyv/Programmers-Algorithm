@@ -1,0 +1,16 @@
+//const num_list = [1, 2, 3, 4, 5, 6, 7, 8], let n = 2;
+function solution(num_list, n) {
+    var answer = [];
+    while(num_list.length) {
+        // splice() 시작 값과 끝 값의 바로 앞 인덱스를 가지고 온다
+        answer.push(num_list.splice(0,n));
+        console.log(answer)
+    }
+    return answer;
+}
+
+// console.log(answer)
+// [ [ 1, 2 ] ]
+// [ [ 1, 2 ], [ 3, 4 ] ]
+// [ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ] ]
+// [ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ], [ 7, 8 ] ]
