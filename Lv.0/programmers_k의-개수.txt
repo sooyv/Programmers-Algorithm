@@ -1,0 +1,12 @@
+//                1  13까지 1이 몇번 등장하는지
+function solution(i, j, k) {
+    let arr = [];
+    for (let n = i; n <= j; n++) {
+        arr.push(n);             // arr에는 [1, 2, ..., 12, 13]
+    }
+    let joinedArr = arr.join('');
+    // filter를 통해 k가 몇개 있는지 확인, length를 통해 k갯수를 answer로
+    let answer = [...joinedArr].filter((x) => x === String(k)).length;
+    return answer;
+}
+
