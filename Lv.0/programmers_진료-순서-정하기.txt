@@ -1,0 +1,6 @@
+function solution(emergency) {
+    let sorted = [...emergency].sort((a, b) => b - a);
+    console.log(sorted);
+    // sorted의 index번호에 +1을 더한 배열을 return
+    return emergency.map(e => (sorted.indexOf(e) + 1));
+}
