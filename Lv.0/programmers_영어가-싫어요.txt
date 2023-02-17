@@ -1,0 +1,22 @@
+// 첫번째 풀이
+function solution(numbers) {
+    const num = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+
+    for(let i = 0; i < num.length; i++) {
+      // num[i]로 split()한 뒤, 나뉜 것을 num으로 바꿔 join()
+        numbers = numbers.split(num[i]).join(i)
+    }
+    // String -> Number로 형 변환
+    return Number(numbers)
+}
+
+
+// 두번째 풀이 
+function solution(numbers) {
+    let num = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+    
+    num.forEach((item, index) => {
+        numbers = numbers.split(item).join(String(index));
+    });
+    return Number(numbers);
+}
