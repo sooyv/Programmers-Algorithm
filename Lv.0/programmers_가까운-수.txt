@@ -1,0 +1,16 @@
+function solution(array, n) {
+    var arr = [];
+    array.forEach(elem => {
+        arr.push(Math.abs(elem - n));       // n과 가장 가까운 수를 구하기 위해, array배열의 요소를 n으로 뺀 것의 절댓값을 구함
+    })
+    let min = Math.min(...arr);     // arr 배열의 최솟값 구하기 
+    
+    let answer = [];
+    
+    for(let i = 0; i < arr.length; i++) {
+        if (arr[i] === min) {           // arr[i]와 최솟값 min이 같다면
+            answer.push(array[i]);      // array[i]를 answer 배열에 push
+        }
+    }
+    return Math.min(...answer);         // answer 배열의 최솟값을 return 
+}
