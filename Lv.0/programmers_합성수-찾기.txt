@@ -1,0 +1,19 @@
+function solution(n) {
+    let answer = [];
+    // 1부터 n까지 중 j로 나눴을 때 
+    for (let i = 1; i <= n; i++) {
+        for (let j = 2; j < i; j++) {
+            if (i % j === 0) {
+                answer.push(i);
+            }
+        }
+    }
+    console.log(answer);
+    return [...new Set(answer)].length;       
+    
+}
+
+// 처음 return을 answer.length로 하니 통과하지 못했다. 
+// return을 하나하나 생각해보고 console.log로 확인해보니 중복값을 확인했다.
+// n이 10일때, 6은 2, 3으로 나눠지고, 8은 2, 4로, 10은 2, 5로 나눠지기 때문에 배열에 중복값이 존재
+// 이 중복값을 없애주기 위해서 Set을 사용했다.
