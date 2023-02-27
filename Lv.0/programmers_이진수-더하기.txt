@@ -1,0 +1,7 @@
+function solution(bin1, bin2) {
+    let answer = '';
+    // parseInt로 문자열을 파싱해서 특정 진수의 정수를 반환
+    answer = parseInt(bin1, 2) + parseInt(bin2, 2)
+    // toString으로 10진수를 특정 진수로 변환
+    return answer.toString(2);
+}
