@@ -1,0 +1,19 @@
+function solution(s) {
+    let answer = [];
+    
+    let sArr = s.split("");
+    
+    // lastIndexOf(): 문자열에서 주어진 문자의 마지막 위치를 반환
+    // indexOf()는 현재 문자의 첫 번째 인덱스를 반환하고 lastIndexOf()는 현재 문자의 마지막 인덱스를 반환
+    // 따라서 s.indexOf(e) == s.lastIndexOf(e) 구문은 문자 e가 문자열 s에서 처음과 마지막 위치가 동일한 경우에만 참이므로, 
+    // 문자열 s내에서 한 번만 나타나는 문자 e를 answer에 push
+    sArr.forEach((e) => {
+        if (s.indexOf(e) == s.lastIndexOf(e)) {
+            answer.push(e);
+            console.log(answer);
+        }
+    })
+    // 문자열 s에서 한 번만 나타나는 문자를 알파벳순으로 정렬하여 반환
+    return answer.sort().join("");
+}
+
