@@ -1,0 +1,18 @@
+function solution(s) {
+    var answer = [];
+    let arr = s.split(' ');
+    
+    for (let i = 0; i < arr.length; i++) {
+        // arr[i]가 'Z'일 경우에 이전에 넣은 수를 answer 배열에서 pop()
+        if (arr[i] === ('Z')) {
+            answer.pop();
+        // else일 경우 arr[i]를 숫자로 만든 num을 배열에 push
+        } else {
+            let num = parseInt(arr[i], 10)
+            answer.push(num);
+        }
+    }
+    // 남은 수를 모두 더해준다
+    return answer.reduce((acc, cur) => acc + cur, 0);
+}
+
