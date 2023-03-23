@@ -1,0 +1,14 @@
+function solution(n) {
+    var answer = [];
+    let divisor = 2;                    // 소인수분해가 되는 가장 작은 값
+    
+    while (n >= divisor) {
+        if (n % divisor == 0) {         // 만약 n을 divisor로 나눈 나머지가 0이라면
+            answer.push(divisor)        // answer 배열에 divisor를 push
+            n = n / divisor;            // 소인수만 남도록
+        } else {                        // 나머지가 0이 아닐 경우
+            divisor += 1;               // divisor값을 하나 늘려줌
+        }   
+    }
+    return [...new Set(answer)];        // 중복제거 return
+}
