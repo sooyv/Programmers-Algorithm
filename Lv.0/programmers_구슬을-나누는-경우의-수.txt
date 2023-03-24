@@ -1,0 +1,45 @@
+// 서로 다른 n개 중 m개를 뽑는 경우의 수 공식이 힌트로 나와있다. 이것을 참고해서 풀었다.
+//        n!
+// -----------------
+//   (n - m)! * m!
+// 즉, 서로 다른 balls 개수 중 share를 뽑는것이다.
+
+// 처음 쓴 코드 - bigInt로 인해 실패
+// 팩토리얼을 구하는 함수
+function factorial(balls) {
+    if (balls < 0) {
+        return -1;
+    } else if (balls == 0) {
+        return 1;
+    } else {
+        return (balls * factorial(balls -1));
+    }
+}
+    
+function solution(balls, share) {
+    return factorial(balls) / ((factorial(balls - share)) * factorial(share));
+}
+
+
+
+// 수정한 코드
+function factorial(n) {
+    let result = BigInt(1);
+    for(let i = 1; i <= n; i++) {
+        result *= BigInt(i);
+    }
+    return result;
+}
+
+function solution(balls, share) {
+    return factorial(balls) / ((factorial(balls - share)) * factorial(share));
+}
+
+
+
+// 다른 사람의 코드
+const factorial = (balls) => balls === 0 ? 1 : balls * factorial(balls - 1);
+
+function solution(balls, share) {
+return Math.round(factorial(balls) / factorial(balls - share) / factorial(share));
+}
