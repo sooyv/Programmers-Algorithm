@@ -1,0 +1,13 @@
+// 처음 쓴 코드
+function solution(num) {
+    if (num % 2 == 0) {         // 2로 나눈 나머지가 0이라면 짝수이므로
+        return ("Even");        // Even 반환
+    } else {                    // 아니라면 홀수이므로
+        return ("Odd");         // Odd 반환
+    }
+}
+
+// 두번째 쓴 코드
+function solution(num) {
+    return ((num % 2 == 0) ? "Even" : "Odd");
+}
