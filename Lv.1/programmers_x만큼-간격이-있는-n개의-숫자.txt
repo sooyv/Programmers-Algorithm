@@ -1,0 +1,9 @@
+function solution(x, n) {
+    let answer = [];
+    // x씩 증가하는 숫자를 n개 지니게 하기 위해,
+    // i는 1부터 n개까지, x * i를 answer에 push
+    for(let i = 1; i <= n; i++) {
+        answer.push(x * i)
+    }
+    return answer;
+}
