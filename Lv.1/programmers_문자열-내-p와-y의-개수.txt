@@ -1,0 +1,10 @@
+function solution(s) {                      // let s = "pPoooyY"
+    let change = s.toLowerCase();           // s를 모두 소문자로 변환 => ppoooyy
+    
+    // split() 함수를 이용하여 "p"를 기준으로 문자열을 나눠준다. [ '', '', 'oooyy' ]의 length 3 
+    let p = change.split("p").length;       
+    // split() 함수를 이용하여 "y"를 기준으로 문자열을 나눠준다.[ 'ppooo', '', '' ]의 length 3
+    let y = change.split("y").length;       
+    
+    return p == y ? true : false;           // 두 개의 length가 같다면 true, 다르다면 false
+}
