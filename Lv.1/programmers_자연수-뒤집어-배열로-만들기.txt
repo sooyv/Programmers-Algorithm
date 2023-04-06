@@ -1,0 +1,19 @@
+function solution(n) {
+    var answer = [];
+    // [ '5', '4', '3', '2', '1' ]
+    let arr = String(n).split("").reverse();    
+    // for문을 이용해 answer 배열에 arr의 인덱스 하나하나를 숫자로 바꾸어 push해준다
+    for (i = 0; i < arr.length; i++) {
+        answer.push(parseInt(arr[i]));
+    }
+    return answer;
+}
+
+// map을 이용한 풀이
+// toString() 메소드를 사용하여 n을 문자열로 변환한다. -> "12345"
+// split('') 메소드를 사용하여 문자열을 한 글자씩 쪼개 배열로 만든다. -> ["1", "2", "3", "4", "5"]
+// reverse() 메소드를 사용하여 배열의 순서를 뒤집는다. -> ["5", "4", "3", "2", "1"]
+// map() 메소드를 사용하여 각 배열 요소를 다시 정수로 변환한다. -> [5, 4, 3, 2, 1]
+function solution(n) {
+    return n.toString().split('').reverse().map(o => o = parseInt(o));    
+}
