@@ -1,0 +1,5 @@
+function solution(n) {
+    // n을 문자열로 변환 뒤 split()을 이용해 배열로 나눠준다.
+    // sort()를 이용해 내림차순으로 정렬 후 join()
+    return Number(n.toString().split("").sort((a, b) => b - a).join(""));
+}
