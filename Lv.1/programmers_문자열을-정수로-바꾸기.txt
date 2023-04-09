@@ -1,0 +1,17 @@
+// 풀이 1
+function solution(s) {
+    // parseInt()를 이용하여 문자열을 정수로 변환
+    return parseInt(s);
+}
+
+// 풀이 2
+function solution(s) {
+    // s를 1로 나눔으로써 문자 s를 숫자로 형변환
+    // 숫자와 문자열을 연산하면 문자열이 자동으로 숫자로 형변환
+    return s/1;
+}
+
+// 풀이 3
+function strToInt(str) {
+  return +str;
+}
