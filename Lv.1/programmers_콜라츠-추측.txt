@@ -1,0 +1,23 @@
+function solution(num) {
+    var answer = 0;
+    for (let i = 0; i < 500; i++) {         // 500번 반복할때까지 수행
+        if (num != 1) {      // num이 1이 아니라면
+            // 짝수라면 num / 2, 아니라면 num * 3 + 1
+            num = num % 2 == 0 ? num / 2 : num * 3 + 1;     
+        } else {             // num이 1이라면 1이 되기까지 반복한 횟수인 i를 return    
+            return answer = i;
+        }
+    }
+    return answer = -1;         // 500번 반복할때까지 1이 되지 않는다면 -1 return
+}
+
+
+// 다른 풀이
+function collatz(num) {
+    var answer = 0;
+    while(num != 1 && answer != 500){
+        num % 2 == 0 ? num = num / 2 : num = num * 3 + 1;
+    answer++;
+  }
+    return num == 1 ? answer : -1;
+}
