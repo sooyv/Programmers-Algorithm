@@ -1,0 +1,47 @@
+// 첫번째 풀이
+function solution(n) {
+    var answer = 0;
+    for (let x = 1; x <= n; x++) {          // n까지 for문을 돌면서 
+        if (x * x == n) {                   // n이 어떤 양의 정수 x의 제곱인지 아닌지 판단
+            answer = (x + 1) * (x + 1)      // n이 양의 정수 x의 제곱이라면 x+1의 제곱을 리턴
+            break;
+        } else {
+            answer = -1;                    //  n이 양의 정수 x의 제곱이 아니라면 -1을 리턴
+        }
+    }
+    return answer;
+}
+
+// 정리한 풀이
+function solution(n) {
+    var answer = 0;
+    answer = -1;
+    for (let x = 1; x <= n; x++) {
+        if (x * x == n) {
+            answer = (x + 1) * (x + 1);
+            break;
+        }
+    }
+
+    return answer;
+}
+
+
+// 다른 풀이
+function solution(n) {
+    var answer = 0;
+    // Math.sqrt(n)을 이용하여 n의 제곱근을 구한다. n이 어떤 정수의 제곱수라면, Math.sqrt(n)의 값은 정수
+    // 이 값이 정수로 나타나는지 검사하기 위해 Math.floor 함수를 이용하여 소수점 이하를 버린다.
+    if (Math.sqrt(n) == Math.floor(Math.sqrt(n))) {
+        // 버린 결과가 Math.sqrt(n)의 값과 같으면, n은 어떤 정수의 제곱수이므로, 
+        // (Math.sqrt(n) + 1)의 제곱을 구하여 반환
+       answer = Math.pow(Math.sqrt(n) + 1, 2)
+        
+    } else answer = -1;         // n이 양의 정수 x의 제곱이 아니라면 -1을 반환
+    
+    return answer;
+}
+
+// Math.pow()의 쓰임새에 대해 알았다.
+// Math.pow(base, exponent) 
+// base: 밑 값, exponent: 밑을 제곱하기 위해 사용하는 지수
