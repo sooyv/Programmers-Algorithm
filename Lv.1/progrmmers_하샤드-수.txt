@@ -1,8 +1,0 @@
-function solution(x) {                          // x = 12 
-    let sum = 0;                                // sum은 x의 자릿수를 더할 수
-    let arr = String(x).split("");              // x를 문자로 변환 후 '12' split("") [1, 2]
-    for (let i = 0; i < arr.length; i++) {      // 배열 arr의 자릿수를 Number로 변환해 하나하나   
-        sum += Number(arr[i]);                  // sum에 더해줌
-    }
-    return (x % sum) == 0 ? true : false;       // x를 sum으로 나눈 나머지가 0이면 true, 아니라면 false
-}
