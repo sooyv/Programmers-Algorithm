@@ -1,8 +1,0 @@
-function solution(seoul) {
-    let x = seoul.indexOf("Kim");        // indexOf()로 특정 문자의 위치 찾기 
-    return "김서방은 " + x + "에 있다";
-}
-
-// indexOf :  arr.indexOf(searchElement[, fromIndex])
-// searchElement : 배열에서 찾을 요소
-// fromIndex : 검색을 시작할 인덱스. 인덱스가 배열의 길이보다 크거나 같은 경우 -1이 반환되므로 배열이 검색되지 않는다. 계산 된 인덱스가 0보다 작으면 전체 배열이 검색된다. 기본값 : 0 (전체 배열 검색).
