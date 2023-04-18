@@ -1,0 +1,11 @@
+function solution(phone_number) {
+    var answer = '';
+    for (let i = 0; i < phone_number.length; i++) {
+        if (i < phone_number.length - 4) {      // i가 마지막 4자리를 제외한 나머지 자리수라면,
+            answer += '*';                      // answer에 '*'을 추가
+        } else {
+            answer += phone_number[i];          // 그렇지 않으면, answer에 현재 검사 중인 자리수의 값을 추가
+        }
+    }
+    return answer;
+}
