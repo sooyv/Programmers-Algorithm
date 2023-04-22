@@ -1,0 +1,39 @@
+// 처음 풀이
+// 테스트 코드는 통과했지만, 제출 후 채점하기에서 오류가 났다.
+function solution(arr) {
+    if (arr.length <= 1) {
+        return [-1];
+    } else {
+        arr.sort((a, b) => b - a);
+        arr.pop();
+        return arr;
+    }
+}
+
+
+// 수정 코드
+function solution(arr) {
+    // arr 길이가 1이하라면 -1 return
+    if (arr.length <= 1) { 
+        return [-1]
+    }
+    // const tmp = [4, 3, 2, 1]에서 sort()를 이용해 오름차순 정렬
+    // 가장 작은 수인 tmp[0]번 인덱스
+    const tmp = arr.slice();
+    tmp.sort((a, b) => a - b);
+    console.log(tmp)
+    const val = tmp[0];
+
+    // indexOf()를 통해 값을 추출하고
+    // splice()를 통해 arr배열에서 val을 제거
+    arr.splice(arr.indexOf(val), 1);
+
+    return arr;
+}
+
+// 다른 풀이
+// 최소값을 통해 간단하게 값을 구하고 제거할 수 있었다. 
+function solution(arr) {
+    arr.splice(arr.indexOf(Math.min(...arr)),1);
+    return arr.length <= 1 ? [-1] : arr;
+}
