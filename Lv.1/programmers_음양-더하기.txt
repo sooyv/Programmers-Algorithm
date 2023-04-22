@@ -1,0 +1,18 @@
+function solution(absolutes, signs) {
+    var answer = 0;
+    for (let i = 0; i < signs.length; i++) {
+        if(signs[i] === true) {
+        answer += absolutes[i];
+        } else if (signs[i] === false) {
+            answer -= absolutes[i];
+        }    
+    }
+    return answer;
+}
+// signs와 absolutes의 배열의 index 번호가 같은 것을 비교하고 true면 더해주고 false면 빼준다.
+
+// 다른 사람의 풀이
+function solution(absolutes, signs) {
+
+    return absolutes.reduce((acc, val, i) => acc + (val * (signs[i] ? 1 : -1)), 0);
+}
