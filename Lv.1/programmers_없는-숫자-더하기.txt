@@ -1,0 +1,8 @@
+function solution(numbers) {
+    let answer = 0;
+    for (let i = 1; i < 10; i++) {       // for문에서 i가 1부터 9까지 반복
+        if (!numbers.includes(i)) {      // 현재 i가 numbers 배열에 없는 경우, 
+            answer += i;                 // answer 변수에 i 값을 더해준다
+        }
+    } return answer;
+}
