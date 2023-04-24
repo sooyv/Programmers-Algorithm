@@ -1,0 +1,19 @@
+// toString() 메서드는 특정 진수로 객체를 표현한 문자열을 반환
+function solution(n) {    
+    return n.toString();
+}
+
+// String() 문자로 형변환하여 반환 
+function solution(n) {    
+    return String(n);
+}
+
+// String()과 toString()의 차이점
+// String() : 어떤 형태이든 문자로 형변환
+// toString() : null, undefined 형변환 시 오류
+
+
+// ""를 이용한 형변환
+function solution(n) {
+    return n + "";
+}
