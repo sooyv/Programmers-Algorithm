@@ -1,0 +1,7 @@
+function solution(my_string) {
+    //                  ['b', 'c', 'a', 'd']
+    let strArr = Array.from(my_string.toLowerCase());
+    // ['a', 'b', 'c', 'd']를 join("")
+    let answer = strArr.sort().join("");
+    return answer;      // 	"abcd"
+}
