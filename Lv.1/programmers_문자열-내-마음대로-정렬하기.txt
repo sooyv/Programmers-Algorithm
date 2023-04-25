@@ -1,0 +1,24 @@
+function solution(strings, n) {
+  strings.sort((a, b) => {          // strings.sort()를 사용하여 strings 배열을 정렬
+                                    // n번째 글자를 기준으로 정렬하기 위해 a, b 대소비교
+    if (a[n] < b[n]) {              //  만약 a[n]이 b[n]보다 작다면 -1을 반환하고, 
+        return -1;
+    }
+    if (a[n] > b[n]) {              // a[n]이 b[n]보다 크다면 1을 반환
+        return 1;
+    }
+    if (a < b) {                    // 만약 두 값이 같다면, a와 b 전체를 비교하여 대소 관계를 결정
+        return -1;                  // a < b이면 -1,  
+    }
+    if (a > b) {                    // a > b이면 1을 반환하며,
+        return 1;
+    }
+    return 0;                       // a와 b가 같다면 0을 반환
+  });
+  return strings;
+}
+
+// 다른 풀이
+function solution(strings, n) {
+        return strings.sort((a, b) => a[n] === b[n] ? a.localeCompare(b) : a[n].localeCompare(b[n]));
+}
