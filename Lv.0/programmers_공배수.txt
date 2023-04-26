@@ -1,0 +1,5 @@
+function solution(number, n, m) {
+    // number가 n의 배수이면서 동시에 m의 배수여야하기 때문에 && 조건으로 두 조건에 모두 해당된다면,
+    // return 1, 두 조건에 모두 해당되지 않는다면 0을 return
+    return (number % n == 0 && number % m == 0) ? 1 : 0;
+}
