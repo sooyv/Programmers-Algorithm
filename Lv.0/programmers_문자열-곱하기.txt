@@ -1,0 +1,14 @@
+function solution(my_string, k) {
+    // repeat() 메서드는 문자열을 주어진 횟수만큼 반복해 붙인 새로운 문자열을 반환
+    // str.repeat(count); count는 문자열을 반복할 횟수
+    return my_string.repeat(k);
+}
+
+function solution(my_string, k) {
+    var answer = '';
+    // for문을 이용하여 k개의 my_string을 answer에 붙임
+    for (let i = 0; i < k; i++) {
+        answer += my_string;
+    }
+    return answer;
+}
