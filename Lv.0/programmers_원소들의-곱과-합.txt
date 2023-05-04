@@ -1,0 +1,11 @@
+function solution(num_list) {
+    return num_list.reduce((acc, cur) => acc * cur) < num_list.reduce((acc, cur) => acc + cur) ** 2 ? 1 : 0;
+}
+
+function solution(num_list) {
+    return num_list.reduce((acc, cur) => acc * cur) < Math.pow(num_list.reduce((acc, cur) => acc + cur), 2) ? 1 : 0;
+}
+
+// 제곱을 구하는 두 가지 방법
+// ** (제곱을 할 지수)
+// Math.pow(base, exponent) / base: 밑 값, exponent: 제곱할 지수
