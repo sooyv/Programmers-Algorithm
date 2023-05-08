@@ -1,0 +1,21 @@
+// indexOf()로 풀기
+function solution(str1, str2) {
+    return str2.indexOf(str1) > -1 ? 1 : 0;
+}
+
+// indexOf 메서드는 찾고자 하는 문자열의 인덱스를 리턴한다.
+// 만약 찾고자하는 문자열이 없다면 -1이 리턴되기 때문에 
+// 리턴 한 결과가 -1보다 크다면 부분 문자열이 맞다는 의미로 1을 리턴하고, 
+// -1이 리턴되었다면 부분 문자열이 아니라는 의미로 0을 리턴한다.
+
+
+// includes()로 풀기
+function solution(str1, str2) {
+    return str2.includes(str1) ? 1 : 0;
+}
+
+// string.includes( searchString, length )
+// searchString: 검색할 문자열로 필수 요소이다. 대소문자를 구분한다.
+// length: 검색을 시작할 위치. 선택 요소로, 기본값은 0이다.
+// 반환값은 boolean형이다.
+// str2 문자열에 str1 문자열이 포함되어 있으면 1을 반환하고, 그렇지 않으면 0을 반환
