@@ -1,0 +1,33 @@
+// 삼항연산자와 reduce()로 풀기
+function solution(num_list) {
+    // 삼항연산자를 사용하여 num_list.length가 10보다 큰, 11이상의 조건이 true면,
+    // reduce()를 사용하여 모든 원소의 합을 return하고, 
+    // false인 num_list.length가 10이하라면, 모든 원소의 곱을 return
+    return num_list.length > 10 ?
+    num_list.reduce((prev, curr) => prev + curr) : num_list.reduce((prev, curr) => prev * curr);
+}
+
+
+// if문과 map으로 풀기
+function solution(num_list) {
+    var answer = 0;
+    // num_list의 길이가 11 이상이라면
+    // (10 > 이어야 10을 포함하지 않고 11이상이라는 조건에 맞음)
+    if (num_list.length > 10) {
+        // map()을 사용해 answer에 i를 더해줌
+        num_list.map((i)=> answer += i);
+    // 아니라면, num_list의 길이가 10이하
+    } else {
+        // answer는 현재 0으로 선언되었으므로, answer에 i를 곱할때
+        // 0이 되는 것을 방지하기 위해 answer += 1
+        answer += 1;
+        // // map()을 사용해 answer에 i를 곱해줌
+        num_list.map((i)=> answer *= i);
+    }
+    return answer;
+}
+
+
+// 다른사람의 풀이
+// 간단한 표기, 람다식을 눈에 익히기 위해서 알아보았다.
+const solution = num_list => num_list.reduce((a, v) => num_list.length > 10 ? a + v : a * v);
