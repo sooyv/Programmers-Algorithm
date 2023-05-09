@@ -1,0 +1,17 @@
+// indexOf()로 찾기
+function solution(num_list, n) {
+    return num_list.indexOf(n) > -1 ? 1 : 0;
+}
+
+// indexOf() 메소드는 찾고자 하는 값이 없을때 -1을 return하기 때문에 return한 값과 -1의
+// 대소관계를 구분해 -1보다 크다면, num_list에 n이 있다면 1을 return,
+// -1보다 작다면, 0을 return 한다.
+
+
+
+// includes()로 찾기
+function solution(num_list, n) {
+    return num_list.includes(n) ? 1 : 0;
+}
+
+// includes()메소드를 사용하여 배열이 특정 요소를 포함하고 있는지 판별
