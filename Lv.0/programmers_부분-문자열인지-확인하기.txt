@@ -1,0 +1,13 @@
+// includes()로 풀이
+function solution(my_string, target) {
+    // boolean값을 반환
+    return my_string.includes(target) ? 1 : 0;
+}
+
+// indexOf()로 풀이
+function solution(my_string, target) {
+    // indexOf()는 있을 경우 해당 인덱스를 반환하고, 없을 경우 -1을 반환
+    // 따라서, -1보다 큰 수를 반환할때에는 해당 인덱스가 있는 것으로 1을 return하고,
+    // 아닐 경우 -1을 반환하기 때문에 0을 return
+    return my_string.indexOf(target) > -1 ? 1 : 0;
+}
