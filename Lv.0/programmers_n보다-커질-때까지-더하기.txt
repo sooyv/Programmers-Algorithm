@@ -1,0 +1,37 @@
+// for... in 사용
+function solution(numbers, n) {
+    var answer = 0;
+    // 각 반복마다 현재 인덱스를 i 변수에 할당
+    for (let i in numbers) {
+        // 현재 인덱스 i에 해당하는 numbers의 원소를 answer에 더하여 현재 합을 구함
+        answer += numbers[i]
+        // answer가 주어진 n을 초과하는지 확인
+        if (answer > n) {
+            // 만약 초과한다면 break;를 사용하여 반복문을 중단
+            break;
+        }
+    }
+    return answer;
+}
+
+// for문 사용
+function solution(numbers, n) {
+    var answer = 0;
+    for (let i = 0; i < numbers.length; i++) {
+        answer += numbers[i];
+        if (answer > n) {
+            break;
+        }
+    }
+}
+
+
+// 다른 풀이
+function solution(numbers, n) {
+    var answer = 0;
+    let i = 0;
+    while (answer <= n) {
+        answer += numbers[i++]
+    }
+    return answer;
+}
