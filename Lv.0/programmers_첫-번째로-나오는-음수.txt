@@ -1,12 +1,18 @@
 // for문과 indexOf로 풀기
 function solution(num_list) {
+    // answer 변수를 -1으로 초기화
     var answer = -1;
     for (let i = 0; i < num_list.length; i++) {
+        // num_list의 인덱스가 음수인지 판별
         if (num_list[i] < 0) {
+            // 원소가 음수일 경우, indexOf()를 사용하여 해당 음수 원소의 인덱스를 찾는다
             answer = num_list.indexOf(num_list[i]);
+            // 음수인 첫 번째 원소의 인덱스를 찾았으면 answer 변수에 할당하고 
+            // break;를 사용하여 반복문을 중단
             break;
         }
     }
+    // 반복문이 종료된 후, answer 변수 값을 반환합니다. 음수인 원소가 없으면 -1이 반환
     return answer;
 }
 
