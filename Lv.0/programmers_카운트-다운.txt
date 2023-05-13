@@ -1,0 +1,14 @@
+function solution(start, end) {
+    var answer = [];
+    // for문으로 start부터 end까지 1씩 감소하며 반복
+    for (let i = start; i >= end; i--) {
+        // answer 배열에 i값 push
+        answer.push(i);
+    }
+    return answer;
+}
+
+// 다른 사람의 풀이
+function solution(start, end) {
+    return Array.from(Array(start - end + 1), (_, i) => start - i);
+}
