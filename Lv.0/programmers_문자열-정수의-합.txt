@@ -11,9 +11,11 @@
 
 // // reduce() 사용하기
  function solution(num_str) {
+
      // split('') 메서드를 사용하여 문자열 num_str을 각 자리수를 나눈 배열로 변환
      // reduce 함수를 호출하여 배열의 각 요소를 순회하면서 누적 합산
      // parseInt 함수를 사용하여 문자열을 숫자로 변환하여 더한다.
+
      return num_str.split('').reduce((acc, cur) => acc + parseInt(cur), 0);
      // [...num_str].reduce((acc, cur) => acc + Number(cur), 0);
  }
@@ -21,10 +23,12 @@
 
 // map()으로 풀기
 function solution(num_str) {
-    var answer = 0;
+
     // split('') 메서드를 사용하여 문자열 num_str을 각 자리수를 나눈 배열로 변환
     // map 함수를 사용하여 배열의 각 요소를 순회
     // 각 요소 a를 숫자로 변환한 후 answer에 더한다.
+
+    var answer = 0;
     num_str.split("").map((a)=> answer += Number(a));
     return answer;
 }
