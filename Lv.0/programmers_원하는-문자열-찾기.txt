@@ -1,0 +1,7 @@
+function solution(myString, pat) {
+    return myString.toUpperCase().includes(pat.toUpperCase()) ? 1 : 0;
+    
+    // myString과 pat을 모두 대문자로 변경 (또는 소문자로 변경, toLowerCase())
+    // includes(pat.toUpperCase())를 이용해 대문자로 변환한 myString에 대해 대문자로 변환한 pat이 포함되어 있는지 확인
+    // pat이 포함되어 있다면 1을 반환하고, 포함되어 있지 않다면 0을 반환
+}
