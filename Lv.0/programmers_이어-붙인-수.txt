@@ -1,0 +1,38 @@
+// for문으로 풀이
+function solution(num_list) {
+    // 변수 odd와 even을 각각 0으로 초기화
+    let odd = 0;
+    let even = 0;
+    
+    for (let i = 0; i < num_list.length; i++) {
+        // 홀수인 경우, 해당 숫자를 문자열로 변환하여 odd에 추가
+        if (num_list[i] % 2 !== 0) {
+            odd += String(num_list[i]);
+        // 짝수인 경우, 해당 숫자를 문자열로 변환하여 even에 추가
+        } else if (num_list[i] % 2 === 0) {
+            even += String(num_list[i]);
+        }
+    }
+    // odd와 even을 Number()로 숫자로 변환하여 합산한 값을 반환
+    return Number(odd) + Number(even);
+}
+
+
+// forEach로 풀이
+function solution(num_list) {
+    //  odd와 even을 각각 빈 문자열로 초기화
+    let odd = '';
+    let even = '';
+    
+    num_list.forEach((num) => {
+        // 짝수인 경우, 해당 숫자를 문자열로 변환하여 even에 추가
+        if (num % 2 == 0) {
+            even += num;
+        // 홀수인 경우, 해당 숫자를 문자열로 변환하여 odd에 추가
+        } else {
+            odd += num;
+        } 
+    })
+    // // odd와 even을 숫자로 변환하여 합산한 값을 반환
+    return (+odd) + (+even);
+}
