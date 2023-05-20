@@ -1,0 +1,33 @@
+// map() 사용
+function solution(my_string, alp) {
+    var answer = '';
+    // my_string을 [...my_string]을 통해 배열로 변환
+    // 변환된 배열에 대해 map() 함수를 호출
+    [...my_string].map((a) => {
+        // 만약 a가 alp와 일치한다면, 해당 문자를 대문자로 변환하여 answer에 추가
+       if (a == alp) {
+            answer += a.toUpperCase();
+        // 그렇지 않다면, 그대로 answer에 추가
+        } else {
+            answer += a;
+        }
+    })
+    return answer;
+}
+
+
+// for문 사용
+function solution(my_string, alp) {
+    var answer = '';
+    // for문으로 my_string을 반복하면서 각 문자가 alp와 일치하는지 확인
+    for (let i = 0; i < my_string.length; i++) {
+        // 만약 일치한다면 해당 문자를 대문자로 변환하여 answer에 추가
+        if (my_string[i] === alp) {
+            answer += my_string[i].toUpperCase();
+        // 일치하지 않는 경우에는 그대로 answer에 추가
+        } else {
+            answer += my_string[i];
+        }
+    }
+    return answer;
+}
