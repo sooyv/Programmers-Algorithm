@@ -1,0 +1,21 @@
+// for문 사용
+function solution(strArr) {
+    var answer = [];
+    for (let i = 0; i < strArr.length; i++) {
+        // 짝수 인덱스인 경우, 해당 문자열을 대문자로 변환하여 answer 배열에 추가
+        if (i % 2 == 0) {
+            answer.push(strArr[i].toLowerCase());
+        // 홀수 인덱스인 경우, 해당 문자열을 소문자로 변환하여 answer 배열에 추가
+        } else if (i % 2 == 1) {
+            answer.push(strArr[i].toUpperCase());
+        }
+    }
+    return answer;
+}
+
+
+// map() 사용
+function solution(strArr) {
+    // 2로 나눴을 때 나머지가 0이면 짝수로 toLowerCase(), 아니라면 홀수로 toUpperCase()
+    return strArr.map((i, k) => k % 2 === 0 ? i.toLowerCase() : i.toUpperCase());
+}
