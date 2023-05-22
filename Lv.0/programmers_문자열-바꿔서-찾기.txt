@@ -1,3 +1,4 @@
+// map()으로 풀이
 function solution(myString, pat) {    
     return [...myString].map(e => e === 'A' ? 'B' : 'A').join('').includes(pat) ? 1 : 0;
     
@@ -8,5 +9,23 @@ function solution(myString, pat) {
     // join('')을 사용하여 배열을 다시 문자열로 변환
     // includes(pat)을 사용하여 변환된 문자열이 문자열 pat을 포함하는지 확인
     // 변환된 문자열이 pat을 포함한다면 1을, 포함하지 않는다면 0을 반환
+}
 
+// for문으로 풀이
+function solution(myString, pat) {    
+    let str = "";
+    
+    // for문을 사용하여 문자열 myString의 각 문자를 순차적으로 접근
+    for (let i = 0; i < myString.length; i++) {
+        // 만약 현재 문자 myString[i]가 'A'와 같다면, 'B'를 str에 추가
+        if (myString[i] == 'A') {
+            str += 'B';
+        // 그렇지 않은 경우, 즉 'A'가 아닌 문자라면 'A'를 str에 추가
+        } else {
+            str += 'A';
+        }
+    }
+    // str.includes(pat)을 사용하여 str이 문자열 pat을 포함하는지 여부를 확인
+    // 포함한다면 1을, 포함하지 않는다면 0을 반환
+    return str.includes(pat) ? 1 : 0;
 }
