@@ -1,0 +1,13 @@
+// slice()로 풀이
+function solution(num_list) {
+    // sort()를 통해 오름차순 정렬 한 뒤, slice() 또는 splice()를 사용하여 5개 return
+    //원본 배열을 변경하지 않을때
+    return num_list.sort((a, b) => a - b).slice(0, 5);    
+}
+
+
+// splice()로 풀이
+function solution(num_list) {
+    // 원본 배열을 변경하고, 잘린 요소들로 이루어진 배열을 반환
+    return num_list.sort((a, b) => a - b).splice(0, 5);     
+}
