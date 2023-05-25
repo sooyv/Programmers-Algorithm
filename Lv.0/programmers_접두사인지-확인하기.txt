@@ -1,0 +1,25 @@
+function solution(my_string, is_prefix) {
+    
+    // 접두사, 즉, 0번째 인덱스를 찾아야하기 때문에
+    // indexOf()로 인덱스 위치를 찾아 return한 것이 0이라면 1을 반환하고, 아니라면 0을 반환
+    
+    return my_string.indexOf(is_prefix) == 0 ? 1 : 0;
+}
+
+
+// 다른 사람의 풀이 - slice 사용
+function solution(my_string, is_prefix) {
+    
+    // my_string 문자열의 처음부터 is_prefix 문자열의 길이까지를 잘라내어 반환
+    // 잘라낸 문자열과 is_prefix를 비교하여, 만약 잘라낸 문자열과 is_prefix가 동일하다면, 
+    // my_string이 is_prefix로 시작한다면 조건식이 참이 되어 1을 반환
+    // 그렇지 않다면, 즉, my_string이 is_prefix로 시작하지 않는다면 조건식이 거짓으로 0을 반환
+    
+    return my_string.slice(0, is_prefix.length) === is_prefix ? 1 : 0;
+}
+
+
+// substring() 사용
+function solution(my_string, is_prefix) {
+    return my_string.substring(0, is_prefix.length) === is_prefix ? 1 : 0;
+}
