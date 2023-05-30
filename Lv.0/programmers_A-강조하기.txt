@@ -1,0 +1,35 @@
+// map()으로 풀이
+function solution(myString) {
+    return [...myString].map((e) => e == 'a' || e == 'A' ? 'A' : e.toLowerCase()).join("");
+}
+
+
+// // for문으로 풀이
+function solution(myString) {
+    var answer = '';
+    for (let i = 0; i < myString.length; i++) {
+        if (myString[i] == 'a' || myString[i] == 'A') {
+            answer += myString[i].toUpperCase(); 
+        } else if (myString[i] !== 'a') {
+            answer += myString[i].toLowerCase();
+        }
+    }
+
+    return answer;
+}
+
+// for문으로 풀이 한 뒤 test 3번에서 오류가 났다. 조건을 다시 살펴보니
+// '"A"가 아닌 모든 대문자 알파벳은 소문자 알파벳으로 변환하여 return'이라는 설명이 있는 것을 확인했다.
+// 조건에 맞게 || myString[i] == 'A'를 추가해주었다.
+
+
+// 다른 사람의 풀이 1
+function solution(myString) {
+    // ['a', 'A'].includes(str)를 통해 배열에 특정 요소('a', 'A')가 포함되어 있는지를 확인. 
+    return [...myString].map(str => ['a', 'A'].includes(str) ? 'A' : str.toLowerCase()).join('');
+}
+
+// 다른 사람의 풀이 2
+// 1. s.toLowerCase()를 통해 모든 문자를 소문자로 통일
+// .replaceAll('a', 'A')로 변환된 소문자 문자열에서 모든 'a'를 'A'로 대체
+const solution = s => s.toLowerCase().replaceAll('a','A');
