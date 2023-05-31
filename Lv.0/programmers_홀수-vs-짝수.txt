@@ -1,0 +1,38 @@
+// for로 풀이
+function solution(num_list) {
+    let odd = 0;
+    let even = 0;
+    for (let i = 0; i < num_list.length; i++) {
+        if (i % 2 == 0) {
+            even += num_list[i];
+        } else if (i % 2 != 0) {
+            odd += num_list[i]
+   
+        }
+    }
+    return even > odd ? even : odd;
+}
+
+
+// map()으로 풀이
+function solution(num_list) {
+    let odd = 0;
+    let even = 0;
+    // map()으로 num_list 배열을 순회하면서 해당 인덱스가 0으로 나눠지는 (idx % 2 == 0) 경우
+    // 짝수이므로 even += num, 나눠지지 않을 경우 홀수로 odd += num
+    num_list.map((num, idx) => (idx % 2 == 0) ? even += num : odd += num);
+    // even과 odd의 최종 합을 비교해 큰 수를 return
+    return even > odd ? even : odd;
+}
+
+
+// 다른 사람의 풀이 - reduce()를 이용한 풀이
+function solution(num_list) {
+    return Math.max(
+        // 현재 인덱스가 (idx % 2 == 0) 0으로 나눠진다면, acc에 짝수번째 cur을 더하고
+        num_list.reduce((acc, cur, idx) => acc + (idx % 2 == 0 ? cur : 0), 0),
+        // 현재 인덱스가 (idx % 2 != 0) 나눠지지 않는다면, acc에 홀수 cur을 더한다.
+        num_list.reduce((acc, cur, idx) => acc + (idx % 2 != 0 ? cur : 0), 0),
+    );
+    // 최종적으로 Math.max()를 사용해 더한 수 중 큰 값을 return한다.
+}
