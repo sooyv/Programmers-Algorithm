@@ -1,6 +1,0 @@
-function solution(my_string) {
-    var answer = [];
-    // 공백 " "을 기준으로 split()
-    answer = my_string.split(" ");
-    return answer;
-}
