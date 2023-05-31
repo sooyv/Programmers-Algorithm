@@ -1,0 +1,29 @@
+// filter()로 풀이
+function solution(str_list, ex) {
+    // filter() 메서드를 사용하여 str_list 배열을 순회 
+    // !str.includes(ex)로 ex를 포함하지 않는 문자열을 필터링
+    // 필터링된 문자열들을 join('') 메서드로 결합
+    return str_list.filter((str) => !str.includes(ex)).join('');
+}
+
+// for문으로 풀이
+function solution(str_list, ex) {
+    var answer = '';
+    // for문으로 str_list 배열을 돌면서
+    for (let i = 0; i < str_list.length; i++) {
+        // 만약 str_list의 인덱스가 ex를 포함하지 않는다면
+        if (!str_list[i].includes(ex)) {
+            // answer에 해당 인덱스를 넣어주기
+            answer += str_list[i];
+        }
+    }
+    
+    return answer;
+}
+
+// reduce()로 풀이
+function solution(str_list, ex) {
+    // 초기값을 빈 문자열 ''로 설정하여 문자를 덧붙일 수 있도록하고,
+    // cur.includes(ex)를 통해 현재 요소 cur에 ex가 포함되어있다면, ''를 더하고,
+    // 아니라면 cur를 더함
+    return str_list.reduce((acc, cur) => acc + (cur.includes(ex) ? '' : cur), '')};
