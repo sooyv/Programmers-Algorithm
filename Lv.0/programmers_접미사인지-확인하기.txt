@@ -1,0 +1,27 @@
+// reverse()로 풀기
+function solution(my_string, is_suffix) {
+    return [...my_string].reverse().join("").indexOf([...is_suffix].reverse().join("")) === 0 ? 1 : 0;
+    
+    // 접미사는 뒤집었을때, 접두사가 되는 것이기도 하기 때문에
+    // my_string을 뒤집은 것과 is_suffix을 뒤집어 비교한다.
+    // indexOf로 is_suffix가 가장 첫 index에 존재하는지 확인하여 반환된 인덱스가 0이면,
+    // 1을 return, 아니라면 0을 return
+}
+
+
+// endsWith() 사용
+function solution(my_string, is_suffix) {
+    return my_string.endsWith(is_suffix) ? 1 : 0;
+    
+    // The endsWith() 메서드를 사용하여 어떤 문자열에서 특정 문자열로 끝나는지를 확인할 수 있음
+    // 문자열의 끝이 주어진 문자열로 끝나면 true, 그렇지 않다면 false 반환
+}
+
+
+// 다른 사람의 풀이 - slice() 사용
+function solution(my_string, is_suffix) {    
+    return my_string.slice(my_string.length - is_suffix.length) === is_suffix ? 1 : 0;
+    
+    // slice()를 사용해 my_string의 끝에서 is_suffix의 길이만큼을 잘라낸다.
+    // 잘라낸 문자열이 is_suffix와 동일하다면, 1을 return하고 아니라면 0을 return한다.
+}
