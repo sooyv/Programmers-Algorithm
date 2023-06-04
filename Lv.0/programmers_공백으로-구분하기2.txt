@@ -1,0 +1,22 @@
+function solution(my_string) {
+    var answer = [];
+    // split(" ")을 통해 공백을 기준으로 문자열을 배열로 나눈 string 배열을 생성
+    let string = my_string.split(" ");
+    // for문을 돌면서 string의 인덱스가 빈 문자열 ''인지 확인
+    for (let i = 0; i < string.length; i++) {
+        // 빈 문자열이 아닐 경우 answer 배열에 해당 인덱스를 push
+        if (string[i] !== '') {
+            answer.push(string[i])
+        }
+    }
+    return answer;
+}
+
+
+// 다른 사람의 풀이
+function solution(my_string) {
+    // split(" ")을 통해 공백을 기준으로 문자열을 배열로 나눔.
+    // filter() 함수는 콜백 함수를 통해 배열의 각 요소를 평가하고, true를 반환하는 요소만으로 새로운 배열을 구성
+    // 빈 문자열은 false로 빈 문자열을 필터링하여 제거
+    return my_string.split(' ').filter(v => v);
+}
