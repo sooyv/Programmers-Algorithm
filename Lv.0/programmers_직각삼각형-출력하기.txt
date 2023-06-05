@@ -1,0 +1,21 @@
+const readline = require('readline');
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+let input = [];
+
+rl.on('line', function (line) {
+    input = line.split(' ');
+}).on('close', function () {
+    // console.log(Number(input[0]));
+    // 해당 코드에는 현재 입력 값을 받아서 input 배열에 저장하는 부분까지만 작성되어 있으므로,
+    // input에서 받아온 숫자를 n에 할당 (주어진 정수 n)
+    const n = Number(input[0]);
+    // 반복문과 repeat()을 통해 출력
+    for (let i = 1; i <= n; i++) {
+        console.log("*".repeat(i));
+    }
+});
+
