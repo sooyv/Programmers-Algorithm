@@ -1,0 +1,35 @@
+function solution(arr1, arr2) {
+    
+    // 배열의 길이
+    if (arr1.length !== arr2.length) {
+        return arr1.length < arr2.length ? -1 : 1;   
+    }
+    
+    // 배열의 합
+    let arr1sum = arr1.reduce((acc, cur) => acc + cur, 0);
+    let arr2sum = arr2.reduce((acc, cur) => acc + cur, 0);
+    
+    if (arr1sum == arr2sum) {
+        return 0;
+    }
+    
+    return arr1sum > arr2sum ? 1 : -1;
+}
+
+
+
+// 코드 줄이기
+function solution(arr1, arr2) {
+    // 배열의 길이
+    if (arr1.length !== arr2.length) {
+        return arr1.length > arr2.length ? 1 : -1;
+        
+    // 배열의 합
+    } else {
+        let arr1sum = arr1.reduce((acc, cur) => acc + cur, 0)
+        let arr2sum = arr2.reduce((acc, cur) => acc + cur, 0)
+        
+        return arr1sum > arr2sum ? 1 : arr1sum == arr2sum ? 0 : -1;
+    }
+ 
+}
