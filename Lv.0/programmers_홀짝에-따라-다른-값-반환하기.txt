@@ -1,0 +1,24 @@
+function solution(n) {
+    var answer = 0;
+    // n이 짝수일 경우
+    if (n % 2 === 0) {
+        // for문을 돌면서
+        for (let i = 1; i <= n; i++) {
+            // n 이하의 짝수인 모든 양의 정수의 제곱의 합을 구함
+            if (i % 2 === 0) {
+                answer += i*i;
+            }
+        }
+    // n이 홀수인 경우
+    } else {
+        // for문을 통해서,
+        for (let i = 1; i <= n; i++) {
+            // n 이하의 홀수인 모든 양의 정수의 합을 구한다.
+            if (i % 2 !== 0) {
+                answer += i;
+            }
+        }
+    }
+    
+    return answer;
+}
