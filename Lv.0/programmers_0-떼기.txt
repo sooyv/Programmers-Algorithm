@@ -1,0 +1,23 @@
+// 첫번째 풀이
+function solution(n_str) { 
+    // Number(n_str): n_str을 숫자로 변환한다.
+    // "0010" -> 10
+    // String(): 변환된 숫자를 다시 문자열로 변환
+    // 10 -> "10"
+    return String(Number(n_str));
+}
+
+
+// 두번째 풀이
+function solution(n_str) {
+    // n_str을 배열로 변환
+    n_str = [...n_str];
+
+    // 첫 번째 요소가 "0"인 동안 반복
+    while (n_str[0] == "0") {
+        // n_str의 첫 번째 요소를 제거(0을 제거)
+        n_str.shift();
+    }
+    // join() 함수를 사용하여 배열 요소를 하나의 문자열로 합치고 반환
+    return n_str.join("");
+}
