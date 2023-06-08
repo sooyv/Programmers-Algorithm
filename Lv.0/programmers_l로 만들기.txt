@@ -1,0 +1,26 @@
+// for문을 이용해 풀이
+function solution(myString) {
+    for(let i = 0; i < myString.length; i++) {
+        // "l"의 유니코드 값은 108
+        if (myString[i] < 'l') {
+            // 108보다 작은 유니코드 값의 알파벳이라면 "l"로 replace한다.
+            myString = myString.replace(myString[i], 'l');
+        }
+    }
+    return myString;
+}
+
+
+// 정규표현식을 이용해 풀이
+function solution(myString) {
+    // 문자 범위 [a-k]에 속하는 모든 문자를 "l"로 변경
+    return myString.replace(/[a-k]/g,'l');
+}
+
+
+// map을 사용해서 풀이
+function solution(myString) { 
+    // map()을 이용해 배열로 변환한 myString의 요소를 순회하면서 ele의 유니코드 값이 'l'보다 작은지 비교
+    // 'l'보다 작다면 'l'로 변환, 아니라면 ele 반환한 뒤 join('')으로 문자열로 변환한 뒤 return
+    return [...myString].map(ele => ele < 'l' ? 'l' : ele).join('');
+}
