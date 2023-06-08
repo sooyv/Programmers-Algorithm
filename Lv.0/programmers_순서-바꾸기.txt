@@ -1,0 +1,28 @@
+function solution(num_list, n) {
+    var answer = [];
+    // num_list를 slice()이용해 (0부터 n 전까지)요소를 추출하고, answer 배열에 할당
+    // map()을 통해 i가 n보다 작으면 해당 요소를 answer 배열에 push()
+    answer = num_list.slice(n);
+    num_list.map((e, i) => (i < n) ? answer.push(e) : '');
+
+    return answer;
+}
+
+
+// 더 간단하게 풀이
+function solution(num_list, n) {
+    // splice(0부터 n 전까지)요소를 추출하고, 추출된 문자는 num_list 배열에서 제거된다. 
+    // splice() 이용으로 원본 배열 변경
+    // 추출한 요소들을 push()를 이용해 num_list 배열 끝에 추가
+    num_list.push(...num_list.splice(0, n));
+    return num_list;
+}
+
+
+// 다른 사람의 풀이
+function solution(num_list, n) {
+    // num_list.slice(n)을 사용하여 num_list 배열의 인덱스 n부터 마지막 요소까지를 추출
+    // num_list.slice(0, n)을 사용하여 num_list 배열의 인덱스 0부터 n-1까지의 요소를 추출
+    // concat()을 활용하여 위에서 추출한 두 배열을 결합한다.
+    return num_list.slice(n).concat(num_list.slice(0,n));
+}
