@@ -1,0 +1,24 @@
+function solution(my_strings, parts) {
+    var answer = '';
+    // for문으로 my_strings 배열의 요소를 순회
+    for (let i = 0; i < my_strings.length; i++) {
+        // my_strings[i]에서 slice() 메서드를 사용하여 
+        // 시작 인덱스 parts[i][0]부터 종료 인덱스 parts[i][1]+1까지의 부분 문자열을 추출
+        // 추출한 부분 문자열을 answer 변수에 누적하여 추가
+        answer += my_strings[i].slice(parts[i][0],parts[i][1]+1);
+    }
+    return answer;
+}
+
+
+// 다른 사람의 풀이
+function solution(my_strings, parts) {
+    // map() 메서드를 사용하여 parts 배열의 각 요소를 순회
+    // my_strings[i]에서 인덱스 i에 해당하는 문자열을 선택
+    // slice() 메서드를 사용하여 선택된 문자열에서 s부터 e + 1까지의 부분 문자열을 추출
+    // slice는 end 인덱스는 포함되지 않기 때문에 + 1
+    // join('')을 사용하여 문자열 배열을 하나의 문자열로 결합하여 return
+    return parts.map(([s, e], i) => {
+        return my_strings[i].slice(s, e + 1)
+    }).join('');
+}
