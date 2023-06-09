@@ -1,0 +1,14 @@
+function solution(arr, delete_list) {
+    // filter()를 이용해 arr배열의 요소 e가 delete_list 배열에 include(e) 되어있는지 확인
+    // 포함되어 있지 않는 요소만을 필터링해서 return
+    return arr.filter(e => !delete_list.includes(e));
+}
+
+
+function solution(arr, delete_list) {
+    var answer = [];
+    // arr 배열의 요소가 delete_list 배열에 포함되어 있다면 (delete_list.includes(e)) ?,
+    // ''로 배열에 아무런 영향을 주지 않음. 아니라면, : answer 배열에 push(e)
+    arr.map(e => delete_list.includes(e) ? '' : answer.push(e));
+    return answer;
+}
