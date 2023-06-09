@@ -1,0 +1,18 @@
+// for문으로 풀이
+function solution(str1, str2) {
+    var answer = '';
+    // for문을 사용하여 두 문자열의 각 인덱스에 해당하는 문자를 순회하면서 결합하여 answer에 추가
+    for (let i = 0; i < str1.length; i++) {
+        answer += str1[i] + str2[i];
+    }
+    return answer;
+}
+
+
+// map()으로 풀이
+function solution(str1, str2) {
+    // 스프레드 연산자([...str1])를 사용하여 배열로 변환
+    // 현재 요소 e와 str2의 동일한 인덱스에 있는 문자를 결합
+    // join("")으로 문자열로 합친다. 
+    return [...str1].map((e, i) => e + str2[i]).join("");
+}
