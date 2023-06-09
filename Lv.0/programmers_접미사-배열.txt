@@ -1,0 +1,13 @@
+// 코드 생각 정리
+// 1. 하나씩 늘려가며 끊어서 배열에 저장하기
+// 2. 마지막으로 배열을 사전순으로 정렬하기
+
+function solution(my_string) {
+    var answer = [];
+    // for문을 사용하여 문자열의 각 위치에서 시작하는 부분 문자열을 추출 answer 배열에 추가
+    for (let i = 0; i < my_string.length; i++) {
+        answer.push(my_string.slice(i));
+    }
+    // 정렬한 배열을 return
+    return answer.sort();
+}
