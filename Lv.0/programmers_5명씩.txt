@@ -1,0 +1,31 @@
+// for문으로 풀기
+function solution(names) {
+    var answer = [];
+    // for문을 돌면서
+    for (let i = 0; i < names.length; i++) {
+        // i를 5로 나눈 나머지가 0이라면
+        if (i % 5 == 0) {
+            // answer에 names의 i번째 인덱스를 push
+            answer.push(names[i]);
+        }
+    }
+    return answer;
+}
+
+
+// map()으로 풀기
+function solution(names) {
+    var answer = [];
+    // map으로 names 배열을 순회하며 인덱스가 5로 나눠진다면, answer 배열에 해당 요소를 Push
+    names.map((e, i) => (i % 5 === 0) ? answer.push(e) : '');
+    return answer;
+}
+
+
+// filter로 더 간단하게 풀이
+function solution(names) {
+    // filter 함수를 사용하여 names 배열을 순회
+    // i % 5 === 0으로, 인덱스가 5로 나눴을때 0인지를 검사 (5의 배수인지를 검사)
+    // 조건이 참인 경우 해당 요소를 유지하고, 조건이 거짓인 경우 해당 요소를 필터링
+    return names.filter((e, i) => (i % 5 === 0));
+}
