@@ -1,0 +1,20 @@
+// for문으로 풀기
+function solution(myString) {
+    var answer = [];
+    // myString을 "x"를 기준으로 split() 메소드를 사용하여 분리하고, count라는 배열에 할당
+    let count = myString.split("x");
+    // count[i].length를 사용하여 각 요소의 길이를 구하고,
+    // answer 배열에 push()
+    for (let i = 0; i < count.length; i++) {
+        answer.push(count[i].length);
+    }
+    return answer;
+}
+
+
+// map()으로 풀기
+function solution(myString) {
+    // myString 문자열을 split('x')로 나누고, 
+    // 분리된 부분 문자열의 길이를 map() 메소드를 사용하여 배열로 반환
+    return myString.split('x').map(v => v.length);
+}
