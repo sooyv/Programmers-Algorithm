@@ -1,0 +1,21 @@
+// for문으로 풀기
+function solution(strArr) {
+    var answer = [];
+    // strArr배열의 요소를 돌면서
+    for (let i = 0; i < strArr.length; i++) {
+        // 요소에 'ad'가 포함되어 있지 않다면,
+        if (!strArr[i].includes('ad')) {
+            // answer 배열에 추가
+            answer.push(strArr[i]);
+        }
+    }
+    return answer;
+}
+
+
+// filter()로 풀기
+function solution(strArr) {
+    // filter로 strArr 배열을 돌면서, 각 요소에 "ad"가 포함되어 있는지 확인
+    // 포함되지 않은 것만 필터링하여 return 
+    return strArr.filter((e) => !e.includes("ad"));
+}
