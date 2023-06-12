@@ -1,0 +1,31 @@
+// for문으로 풀기
+function solution(number) {
+    var answer = 0;
+    for (let i = 0; i < number.length; i++) {
+        // 각 자릿수를 Number()로 숫자로 변환하여 answer에 더하기
+        answer += Number(number[i]);
+    }
+    // 다 더해진 answer을 9로 나눈 나머지를 반환
+    return answer % 9;
+}
+
+
+// map()으로 풀기
+function solution(number) {
+    var answer = 0;
+    // number문자열을 배열로 변환
+    // map() 메소드를 사용하여 각 자릿수를 Number() 함수를 사용하여 숫자로 변환한 후 answer에 더하기
+    [...number].map((e, i) => answer += Number(e));
+    // answer을 9로 나눈 나머지를 반환
+    return answer % 9;
+}
+
+
+// reduce()로 풀기
+function solution(number) {
+    // number문자열을 배열로 변환
+    // reduce() 메소드를 사용하여 배열의 모든 요소를 누적하여 합산 
+    // 초기값을 0으로 설정하고 각 자릿수를 Number() 함수를 사용하여 숫자로 변환한 후 누적값에 더함
+    // 9로 나눈 나머지를 return
+    return [...number].reduce((acc, cur)=> acc + Number(cur), 0) % 9;
+}
