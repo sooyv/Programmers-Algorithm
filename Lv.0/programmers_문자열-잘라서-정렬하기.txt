@@ -1,0 +1,6 @@
+function solution(myString) {
+    // yString 문자열을 split('x')로 'x'를 기준으로 분리
+    // filter()로 공백이 아닌 요소만 필터링
+    // sort()로 사전순으로 정렬
+    return myString.split('x').filter(x => x !== '').sort();
+}
