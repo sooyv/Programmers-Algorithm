@@ -1,0 +1,24 @@
+// for문으로 풀기
+function solution(arr, idx) {
+    let answer = -1;
+    
+    // arr배열의 요소의 값이 1이면서 해당 요소의 인덱스가 idx 이상이라면,
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] == 1 && i >= idx) {
+            // 현재 인덱스 i를 반환하고 함수를 종료
+            return i;
+        } 
+    }
+    // for 루프를 모두 순회했을때 조건을 만족하는 값 1이 없을 경우, 
+    // 위에 answer에 할당했던 -1을 반환
+    return answer;
+}
+
+
+// indexOf로 풀기
+function solution(arr, idx) {
+    // 첫번째 매개변수 1은 arr 배열에서 값이 1인 요소를 찾아 해당 요소의 인덱스를 반환
+    // 두번째 매개변수 idx는 검색을 시작할 인덱스를 지정하여 idx 이후의 인덱스에서부터 값을 찾는다.
+    // arr에서 idx 이후에 등장하는 값 1의 첫 번째 인덱스를 반환
+    return arr.indexOf(1, idx);
+}
