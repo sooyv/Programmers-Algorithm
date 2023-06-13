@@ -1,0 +1,14 @@
+function solution(arr, intervals) {
+    // 첫번째 구간에 concat()을 사용하여 두번째 구간을 결합하여 return
+    return arr.slice(intervals[0][0], intervals[0][1]+1).concat(arr.slice(intervals[1][0], intervals[1][1]+1));
+}
+
+
+function solution(arr, intervals) {
+    // 구조분해할당을 통해 각각 [a, b]와 [c, d]로 할당
+    const [[a,b],[c,d]] = intervals;
+
+    // arr의 slice() 메소드를 사용하여 첫 번째 구간에 해당하는 부분 배열과 두번째 구간에 해당하는 부분배열 추출
+    // 추출한 두 부분을 ...스프레드 문법을 사용해서 결합
+    return [...arr.slice(a, b+1), ...arr.slice(c, d+1)];
+}
