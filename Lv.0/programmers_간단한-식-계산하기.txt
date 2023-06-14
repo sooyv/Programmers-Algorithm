@@ -1,0 +1,51 @@
+function solution(binomial) {
+    // binomial 문자열을 공백을 기준으로 세 부분으로 split(' ')
+    let [a, op, b] = binomial.split(' ');
+    // op가 "+"라면,
+    if (op == "+") {
+        // a와 b를 숫자형으로 변환한 후 더함
+        return +a + +b;
+        
+    // op가 "-"인 경우
+    } else if (op == "-") {
+        // a와 b를 숫자형으로 변환한 후 빼기
+        return +a - +b;
+        
+    // op가 곱하기인 경우
+    } else {
+        // a와 b를 숫자형으로 변환한 후 곱셈
+        return +a * +b;
+    }
+}
+
+
+
+// switch문으로 풀이
+function solution(binomial) {
+    // binomial 문자열을 공백을 기준으로 세 부분으로 split(' ')
+    const div = binomial.split(" ");
+    // 그 중 0번 인덱스는 a, 2번 인덱스는 b
+    const a = parseInt(div[0]);
+    const b = parseInt(div[2]);
+
+    //  switch문으로 div[1]에 있는 연산자에 따라 계산
+    switch(div[1]) {
+        case "+" :
+            return a + b;
+        case "-" :
+            return a - b;
+        case "*" :
+            return a * b;
+    }
+}
+
+
+
+// eval() 함수
+// 문자로 표현 된 JavaScript 코드를 실행하는 함수
+// 사용이 권장되지 않는 함수!
+function solution(binomial) {
+    return eval(binomial);
+}
+
+
