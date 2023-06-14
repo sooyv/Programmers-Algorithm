@@ -1,0 +1,38 @@
+// while로 풀이
+function solution(n) {
+    var answer = [];
+    // n이 1이 아닐 때까지 반복
+    while (n !== 1) {
+        // n이 짝수라면,
+        if (n % 2 == 0) {
+            // answer 배열에 현재 n 값을 추가하고, n / 2
+            answer.push(n);
+            n = n / 2;
+        // 만약 n이 홀수라면,
+        } else {
+            // answer 배열에 현재 n 값을 추가하고, 3 * n + 1
+            answer.push(n);
+            n = 3 * n + 1;
+        }
+    }
+    // 반복문이 한 번 실행될 때마다 n 값이 업데이트되고, 연산된 값이 answer 배열에 추가
+    // 마지막으로 1을 배열에 push하고 return
+    answer.push(1);
+    return answer;
+}
+
+
+
+// 다른 사람의 풀이
+function solution(n, arr = []) {
+    // 주어진 수 n을 배열에 추가
+    arr.push(n);
+    // n이 1이라면, arr 배열을 반환
+    if (n === 1) return arr;
+    
+    // n이 짝수인 경우, n을 2로 나눈 값과 arr 배열을 인자로 재귀 호출
+    if (n % 2 === 0) return solution(n / 2, arr);
+    
+    // n이 홀수인 경우, n에 3을 곱하고 1을 더한 값을 arr 배열을 인자로 재귀 호출
+    return solution(3 * n + 1, arr);
+}
