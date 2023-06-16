@@ -1,0 +1,22 @@
+// filter()로 풀기
+function solution(a, d, included) {
+    var answer = 0;
+    // filter를 사용하여 included의 요소가 true라는 조건에 해당 될 때만 합을 구함
+    included.filter((e, i) => e == true ? answer += a + i * d : '');
+    return answer;
+}
+
+
+// for문으로 풀기
+function solution(a, d, included) {
+    var answer = 0;
+    // for문을 반복하며 included 배열의 요소를 검사
+    for (let i = 0; i < included.length; i++) {
+        // included[i]가 true라면
+        if (included[i]) {
+            // answer에 i번째 항의 합을 더한다.
+            answer += a + d * i;
+        }
+    }
+    return answer;
+}
