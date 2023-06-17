@@ -1,0 +1,57 @@
+// for문으로 풀이
+const readline = require('readline');
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+let input = [];
+
+rl.on('line', function (line) {
+    input = [line];
+}).on('close',function(){
+    str = input[0];
+    for(let i = 0; i < str.length; i++) {
+        console.log(str[i]);
+    }
+});
+
+
+
+
+// for of 구문으로 풀이
+const readline = require('readline');
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+let input = [];
+
+rl.on('line', function (line) {
+    input = [line];
+}).on('close',function(){
+    str = input[0];
+    for (let i of str){
+        console.log(i);
+    }
+});
+
+
+
+
+// foreach로 풀이
+const readline = require('readline');
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+let input = [];
+
+rl.on('line', function (line) {
+    input = [line];
+}).on('close',function(){
+    str = input[0];
+    [...str].forEach(c => console.log(c))
+});
