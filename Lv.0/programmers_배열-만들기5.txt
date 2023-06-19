@@ -1,0 +1,34 @@
+// 첫번째 풀이 - for문으로 풀기
+function solution(intStrs, k, s, l) {
+    var answer = [];
+    for (let i = 0; i < intStrs.length; i++) {
+        // intStrs[i]를 slice하기 위해서 배열로 만들고 다시 join('')을 통해 k와 크기 비교
+        if ([...intStrs[i]].slice(s, s+l).join('') > k) {
+            // k보다 큰 수만 answer배열에 push해 주었다.
+            answer.push(Number([...intStrs[i]].slice(s, s+l).join("")));
+        }
+    }
+    return answer;
+}
+
+
+// 두번째 풀이 - 코드 정리
+function solution(intStrs, k, s, l) {
+    var answer = [];
+    for (let i = 0; i < intStrs.length; i++) {
+        // intStrs[i]를 배열로 만들고 다시 join하는 과정 없이 + 연산자로 숫자로 형변환하여 slice
+        if (+intStrs[i].slice(s, s+l) > k) {
+            // 형 변환한 숫자를 k보다 크다면 answer에 push
+            answer.push(+intStrs[i].slice(s, s+l));
+        }
+    }
+    return answer;
+}
+
+
+// 세번째 풀이 - map()과 filter로 풀기
+function solution(intStrs, k, s, l) {
+    // intStr배열을 map으로 순회하며 각 요소를 숫자로 변환한 뒤 slice
+    // filter를 사용하여 k보다 큰 수만 return
+    return intStrs.map((e) => Number(e.slice(s, s + l))).filter((e) => e > k);
+}
