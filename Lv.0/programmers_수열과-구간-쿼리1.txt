@@ -1,0 +1,26 @@
+function solution(arr, queries) {
+    // for문으로 queries 배열을 순회
+    for (let i = 0; i < queries.length; i++) {
+         // queries[i]를 시작 인덱스 s, 마지막 인덱스 e = > [s, e] 형태로
+         let [s, e] = queries[i];
+         // 시작 인덱스 s, 마지막 인덱스 e까지를 돌면서
+         for (let j = s; j <= e; j++) {
+             // arr 배열의 해당 인덱스를 1씩 증가
+             arr[j]++;
+         }
+    }
+    return arr;
+}
+
+
+
+// 다른 사람의 풀이 
+function solution(arr, queries) {
+    // queries 배열을 순회하면서 각 쿼리에 대해 반복
+    // s는 시작 인덱스, e는 끝 인덱스
+    queries.forEach(([s, e]) => {
+        // s부터 e까지의 범위를 반복하면서 해당 인덱스의 arr요소를 1씩 증가
+        while (s <= e) arr[s++]++;
+    });
+    return arr;
+}
