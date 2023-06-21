@@ -1,0 +1,37 @@
+// 나의 풀이
+function solution(my_string, m, c) {
+    var div = [];
+    // 첫번째로 my_string 문자열을 m씩 끊기 위한 규칙 찾기
+    // console.log(my_string.substring(0 * m, m * 1))
+    // console.log(my_string.substring(1 * m, m * 2))
+    
+    // my_string 문자열을 m씩 끊어서 div 배열에 넣어줌
+    for (let i = 0; i < (my_string.length / m); i++) {
+         div.push(my_string.substring(i * m, m * (i+1)));
+    }
+    // console.log(div)
+    
+    // c번째에 해당하는 문자만 반환해 join으로 문자를 붙이고 return
+    return div.map(e => e[c - 1]).join('');
+}
+
+
+
+// 다른 사람의 풀이 1
+function solution(my_string, m, c) {
+    // i를 m으로 나눈 나머지값은 반복
+    // ex. 0 1 2 3 0 1 2 3 0 1 2 3 ...
+    // 그 중 c - 1과 같은 인덱스만 반환해 join()
+    return [...my_string].filter((_, i) => i % m === c - 1).join('');
+}
+
+
+// 다른 사람의 풀이 2
+function solution(my_string, m, c) {
+    // Array.from(my_string)로 배열로 만든다
+    // reduce를 사용해 초기값 ''에 i % m + 1 === c 조건이 맞는다면, 
+    // 이전 문자열 word + v를 반환하고 조건이 맞지 않는다면 이전 문자열(word)을 그대로 반환
+    return Array.from(my_string).reduce((word, v, i) => {
+        return i % m + 1 === c ? word + v : word
+    }, '');
+}
