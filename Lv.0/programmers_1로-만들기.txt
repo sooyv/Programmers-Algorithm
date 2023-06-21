@@ -1,0 +1,29 @@
+function solution(num_list) {
+    var count = 0;
+    // num_list의 배열 순회, 각 인덱스에 요소 확인
+    for (let i = 0; i < num_list.length; i++) {
+        let num = num_list[i];
+        
+        // num이 1이 아니라면 조건문 실행
+        while(num !== 1) {
+            // num이 짝수라면, 2로 나누고 count++
+            if (num % 2 == 0) {
+                num = num / 2;
+                count++;
+            // num이 홀수라면, num -1 한 후 count++
+            } else {
+                num = (num - 1) / 2;
+                count++;
+            }
+        }
+    }
+    // 계산을 반복하며 나눗셈을 수행한 총 횟수를 return
+    return count;
+}
+
+
+
+// 다른 사람의 풀이
+function solution(num_list) {
+    return num_list.map(v => v.toString(2).length - 1).reduce((a, c) => a + c);
+}
