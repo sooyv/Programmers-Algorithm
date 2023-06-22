@@ -1,0 +1,39 @@
+// const readline = require('readline');
+// const rl = readline.createInterface({
+//     input: process.stdin,
+//     output: process.stdout
+// });
+
+// let input = [];
+
+// rl.on('line', function (line) {
+//     input = line.split(' ');
+// }).on('close', function () {
+//     str = input[0];
+//     n = Number(input[1]);
+//     // 반복할 횟수만큼 repeat()을 통해 반복
+//     console.log(str.repeat(n));
+// });
+
+
+
+const readline = require('readline');
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+let input = [];
+
+rl.on('line', function (line) {
+    input = line.split(' ');
+}).on('close', function () {
+    str = input[0];
+    n = Number(input[1]);
+    // repeat이라는 문자열에 for문으로 이용해 n번만큼 문자 붙이기
+    let repeat = '';
+    for (let i = 0; i < n; i++) {
+        repeat += str;
+    }
+    console.log(repeat);
+});
