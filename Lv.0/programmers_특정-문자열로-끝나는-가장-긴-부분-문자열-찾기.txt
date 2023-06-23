@@ -1,0 +1,16 @@
+// 첫번째 풀이
+function solution(myString, pat) {
+    // lastIndexOf()메서드로 문자열 myString에서 pat이 마지막으로 등장하는 인덱스를 반환
+    // slice() 메서드를 사용하여 myString의 시작부터 pat의 마지막 인덱스 위치까지의 문자열을 추출
+    // pat.length를 더해서 패턴까지의 문자열을 포함
+    return myString.slice(0, myString.lastIndexOf(pat) + pat.length);
+}
+
+
+// 두번째 풀이
+function solution(myString, pat) {
+    // lastIndexOf()메서드로 문자열 myString에서 pat이 마지막으로 등장하는 인덱스를 반환
+    // substring() 메서드를 사용하여 myString의 시작부터 pat의 마지막 인덱스 위치까지의 문자열을 추출
+    // + pat을 더해주어 pat 변수에 저장된 패턴을 추출한 부분 문자열 뒤에 추가
+    return myString.substring(0, myString.lastIndexOf(pat)) + pat;
+}
