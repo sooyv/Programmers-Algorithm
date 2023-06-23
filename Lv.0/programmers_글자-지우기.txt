@@ -1,0 +1,28 @@
+// map()으로 풀기
+function solution(my_string, indices) {
+    var answer = '';
+    // my_string을 배열로 만든 뒤 map으로 순회
+    // indices.includes(i)로 현재 인덱스 i가 indices 배열에 있는지 확인
+    // indices 배열에 현재 인덱스 i가 포함되어 있다면, 결과 문자열 answer를 그대로 반환
+    // indices 배열에 현재 인덱스 i가 포함되어 있지 않다면, 결과 문자열 answer에 현재 문자 e를 추가
+    [...my_string].map((e, i) => indices.includes(i) ? answer : answer += e);
+    return answer;
+}
+
+
+
+// for문으로 풀기
+function solution(my_string, indices) {
+    let answer = '';
+    // for문을 사용하여 i를 0부터 my_string의 길이까지 순회
+    for (let i = 0; i < my_string.length; i++) {
+        
+        // 현재 인덱스 i가 indices 배열에 포함되어 있는지 확인
+        // indices 배열에 현재 인덱스 i가 포함되어 있지 않는 경우에만 
+        // 현재 문자 my_string[i]를 결과 문자열 answer에 추가
+        if (!indices.includes(i)) {
+            answer += my_string[i]
+        }
+    }
+    return answer;
+}
