@@ -1,0 +1,39 @@
+function solution(myString, pat) {
+    var count = 0;
+    let str = "";
+    
+    // for문을 순회하며,
+    for (let i = 0; i < myString.length; i++) {
+
+        // myString 문자열을 하나씩 점진적으로 slice 하고 str에 할당
+        str = myString.slice(i, i + pat.length);
+        
+        // console.log(str)
+        
+        // slice한 문자열 str가 pat과 같은지 검사하고, 같다면 count++
+        if (str == pat) {
+            count++;
+        }
+    }
+    return count;
+}
+
+
+
+// 코드 정리 
+function solution(myString, pat) {
+    var count = 0;
+    let str = "";
+    
+    // 위의 코드에서 i <= myString.length - pat.length;로 변경
+    // i가 myString 문자열의 끝을 초과하여 나타나는 반복을 줄임
+    // 반복 횟수를 정리해주면서 불필요한 반복을 줄임.
+    for (let i = 0; i <= myString.length - pat.length; i++) {
+        str = myString.slice(i, i + pat.length);
+        // console.log(str)
+        if (str == pat) {
+            count++;
+        }
+    }
+    return count;
+}
