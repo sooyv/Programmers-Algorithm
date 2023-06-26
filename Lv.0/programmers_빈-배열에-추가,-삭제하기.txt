@@ -1,0 +1,66 @@
+function solution(arr, flag) {
+    var X = [];
+    
+    for (let i = 0; i < flag.length; i++) {
+        // flag[i]가 true일 경우
+        if (flag[i]) {
+            
+            // answer배열에 arr[i] × 2 번 추가
+            for (let j = 0; j < arr[i] * 2; j++) {
+                X.push(arr[i]);   
+            }
+            
+        // flag[i]가 false일 경우
+        } else {
+            
+            // answer배열에서 마지막 arr[i]개의 원소를 제거
+            for (let j = 0; j < arr[i]; j++) {
+                X.pop(arr[i]);
+            }
+        }
+    }
+    
+    return X;
+}
+
+
+
+// foreach로 풀이
+function solution(arr, flag) {
+    var X = [];
+    
+    // flag의 배열을 돌면서 해당 요소가 true인지 false인지 확인
+    flag.forEach((ele, idx) => {
+        
+        // flag의 요소 ele가 true일 경우,
+        if (ele) {
+            for(let i = 0 ; i < arr[idx] * 2; i++) {
+                X.push(arr[idx]);
+            }
+            
+        // flag의 요소 ele가 false일 경우
+        } else {
+            for (let i = 0; i < arr[idx]; i++) {
+                X.pop(arr[idx]);
+            }
+        }
+    });
+    
+    return X;
+}
+
+
+
+// 다른 사람의 풀이
+function solution(arr, flag) {
+    // 이전 누산값(prev), 현재 요소(num), 현재 인덱스(i), 그리고 원본 배열(arr)을 인자로 받는다
+    // flag의 요소가 true라면(flag[i] ?), 
+    // new Array(num * 2).fill(num) => 길이가 num * 2이고 num으로 채워진 새로운 배열을 생성
+    // flag 요소가 false라면, 
+    // prev.slice(0, -num)을 사용하여 이전 누산값 prev 배열에서 마지막 num 개의 요소를 제외한 부분 배열을 반환
+    
+  return arr.reduce(
+    (prev, num, i) => (flag[i] ? [...prev, ...new Array(num * 2).fill(num)] : prev.slice(0, -num)),
+    [],
+  );
+}
