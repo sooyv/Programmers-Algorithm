@@ -1,0 +1,25 @@
+const readline = require('readline');
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.on('close', function () {
+    // !@#$%^&*(\'"<>?:;    => 원래 문자
+    // 특정 문자를 그대로 출력하기 위해서는 이스케이프(escape) 처리를 해주어야 한다.
+    
+    // 1번 풀이
+    // 큰따옴표와 작은따옴표를 이스케이프 처리하기 위해 역슬래시 추가
+    // 역슬래시와 큰따옴표는 그대로 문자열 리터럴 안에 포함
+    console.log("!@#$%^&*(\\'\"<>?:;");
+    
+    // 2번 풀이
+    // 작은따옴표와 역슬래시를 이스케이프 처리하기 위해 역슬래시 추가
+    // 큰따옴표는 그대로 문자열 리터럴 안에 포함
+    console.log('!@#$%^&*(\\\'"<>?:;');
+    
+    
+    // 3번 풀이
+    // 백틱을 이용한 템플릿 리터럴 풀이
+    console.log(`!@#$%^&*(\\'"<>?:;`);
+});
