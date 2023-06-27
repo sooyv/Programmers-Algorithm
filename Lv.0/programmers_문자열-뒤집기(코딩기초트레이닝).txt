@@ -1,0 +1,24 @@
+// 1번 풀이
+function solution(my_string, s, e) {
+    
+    // my_string 문자열을 s부터 e까지 자른 문자열을 str에 할당
+    var str = my_string.slice(s, e+1);
+    // 자른 문자열 str을 배열로 만든 뒤, reverse로 뒤집고 join()으로 문자열로 만들어 준다.
+    var reverseStr = [...str].reverse().join('');
+    
+    // my_string을 str로 잘라주고, 뒤집은 문자열 reverseStr으로 대체
+    return my_string.split(str).join(reverseStr);
+}
+
+
+// 2번 풀이
+function solution(my_string, s, e) {
+
+    // my_string 문자열을 s부터 e까지 자른 문자열을 str에 할당
+    var str = my_string.substring(s, e+1);
+    // 자른 문자열 str을 split으로 나눠준 후, reverse로 뒤집고, join()으로 문자열로 만들어준다.
+    var reverseStr = str.split('').reverse().join('');
+
+    // replace 메소드를 이용해 str을 reverseStr 문자열로 대체
+    return my_string.replace(str, reverseStr);
+}
