@@ -1,0 +1,63 @@
+// map으로 풀이
+function solution(order) {
+    let total = 0;
+    
+    // map으로 order을 순회하면서 order 배열의 요소를 확인
+    order.map(e => {
+        // 요소 e에 "americano" 단어가 포함 되어 있다면,
+        if (e.includes("americano")) {
+            // total에 4500원을 더함
+            total += 4500;
+        // "latte"단어가 포함되어 있다면,
+        } else if (e.includes("latte")) {
+            // total에 5000원을 더함
+            total += 5000;
+        // 나머지 "anything"이라면 4500을 더함
+        } else {
+            total += 4500;
+        }
+    });
+    return total;
+}    
+    
+
+
+// reduce로 풀이
+function solution(order) {
+    return order.reduce((acc, cur) => {
+        
+        // 현재 요소 cur에 "americano" 단어가 포함 되어 있다면, acc += 4500
+        if (cur.includes("americano")) {
+            return acc += 4500;
+        
+        // "latte"단어가 포함되어 있다면, += 5000
+        } else if (cur.includes("latte")) {
+            return acc += 5000;
+            
+        // // 나머지 "anything"이라면 4500을 더함
+        } else {
+            return acc += 4500;
+        }
+    }, 0);
+}
+
+
+
+// for문으로 풀이
+function solution(order) {
+    let total = 0;
+
+    // for문으로 order배열 순회
+    for(let i = 0; i < order.length; i++) {
+        
+        // 배열의 요소에 "latte" 단어가 있다면, + 5000원
+        if(order[i].includes("latte")) {
+            total += 5000;
+        // 그 외, "americano" 또는 "anything"이라면 + 4500
+        } else {
+            total += 4500;
+        }
+    }
+
+    return total;
+}
