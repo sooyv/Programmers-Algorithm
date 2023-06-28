@@ -1,0 +1,47 @@
+// if문으로 풀이
+function solution(n, slicer, num_list) {
+    let a = slicer[0];
+    let b = slicer[1] + 1;      // b번 인덱스까지 포함하여 자르기 위해서 + 1
+    let c = slicer[2];
+    
+    // 조건에 따라서 n이 1일 때
+    if (n == 1) {
+        // num_list의 0번 인덱스부터 b번 인덱스까지 slice
+        return num_list.slice(0, b);
+    // n이 2일 때,
+    } else if (n == 2) {
+        // num_list의 a번 인덱스부터 마지막 인덱스까지
+        return num_list.slice(a);    
+    // n이 3일 때,
+    } else if (n == 3) {
+        // num_list의 a번 인덱스부터 b번 인덱스까지
+        return num_list.slice(a, b);
+    // n이 4일 때,
+    } else {
+        // num_list의 a번 인덱스부터 b번 인덱스까지 c 간격으로
+        return num_list.slice(a, b).filter((e, i) => !(i % c));
+    } 
+}
+
+
+
+// switch case문으로 풀이
+function solution(n, slicer, num_list) {   
+    // slicer 배열 구조분해할당
+    let [a, b, c] = [...slicer];
+    
+    switch (n) {
+        // n = 1 : num_list의 0번 인덱스부터 b번 인덱스까지
+        case 1 :
+            return num_list.slice(0, b + 1);
+        // n = 2 : num_list의 a번 인덱스부터 마지막 인덱스까지
+        case 2 :
+            return num_list.slice(a);    
+        // n = 3 : num_list의 a번 인덱스부터 b번 인덱스까지
+        case 3 :
+            return num_list.slice(a, b + 1);
+        // n = 4 : num_list의 a번 인덱스부터 b번 인덱스까지 c 간격으로
+        case 4 :
+            return num_list.slice(a, b + 1).filter((e, i) => !(i % c));
+    }
+}
