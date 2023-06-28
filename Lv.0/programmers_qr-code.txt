@@ -1,0 +1,19 @@
+// filter로 풀이
+function solution(q, r, code) {
+    // code를 배열로 변환 후 filter로 요소를 확인
+    // 인덱스 % q 가 r인 인덱스만 return
+    return [...code].filter((e, i) => i % q == r).join("");
+}
+
+
+// reduce로 풀이
+function solution(q, r, code) {
+        // code를 배열로 변환 후 reduce로 순회
+        return [...code].reduce((answer, word, idx) => {
+            // (idx % q == r) 조건에 해당하는 단어만 answer에 +
+            if (idx % q == r) {
+                answer += word;
+            }
+            return answer;
+    }, '');
+}
