@@ -1,0 +1,30 @@
+function solution(board, k) {
+    var sum = 0;
+    // for문을 활용하여 board 배열을 순환 
+    // 바깥쪽 반복문은 i를 통해 행을, 안쪽 반복문은 j를 통해 열을 순회
+    for (let i = 0; i < board.length; i++) {
+        for (let j = 0; j < board[i].length; j++) {
+            // 인덱스 합(i + j)이 k 이하인 경우에만
+            if (i + j <= k) {
+                // 해당 항을 sum에 더해준다.
+                sum += board[i][j];
+            } 
+        }
+    }
+    return answer;
+}
+
+
+
+// 다른 사람의 풀이
+function solution(board, k) {
+    // reduce() 메서드의 첫 번째 매개변수는 현재까지의 누적값인 total
+    // 두 번째 매개변수인 row는 현재 탐색 중인 행(row)이고, i는 현재 행의 인덱스
+    // 내부의 row.reduce() 메서드를 사용하여 각 행(row)을 순회하며 해당 행의 요소들을 처리
+    // num은 현재 탐색 중인 요소를 의미하고, j는 해당 요소의 열 인덱스
+    // 조건문 i + j <= k를 사용하여 인덱스 합이 k 이하인 경우에는 prev + num를 반환, 그렇지 않은 경우 이전 값 prev를 그대로 반환
+  return board.reduce(
+    (total, row, i) => total + row.reduce((prev, num, j) => (i + j <= k ? prev + num : prev), 0),
+    0,
+  );
+}
