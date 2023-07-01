@@ -1,0 +1,5 @@
+function solution(a, b) {
+    // BigInt()를 통해서 큰 수를 정확하게 계산
+    let answer = BigInt(a) + BigInt(b);
+    return String(answer);
+}
