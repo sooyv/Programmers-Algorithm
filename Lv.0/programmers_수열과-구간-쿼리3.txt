@@ -1,0 +1,25 @@
+function solution(arr, queries) {
+    for (let i = 0; i < queries.length; i++) {
+        // arr[queries[i][0]] 랑 arr[queries[i][1]] 인덱스를 바꿔야함
+        // temp에 첫번째 요소 arr[queries[i][0]]를 저장
+        const temp = arr[queries[i][0]];
+        // arr[queries[i][0]]의 인덱스를 arr[queries[i][1]]로 변환
+        arr[queries[i][0]] = arr[queries[i][1]];
+        // temp에 저장되어 있던 첫번째 요소의 값을 두 번째 요소로 변환
+        arr[queries[i][1]] = temp;
+    }
+    return arr;
+}
+
+
+
+
+// 다른 사람의 풀이
+function solution(arr, queries) {
+    // forEach()로 queries 배열을 순회하며, [a, b] 형태의 배열로 구조 분해
+    // arr[a]의 값과 [arr[b]을 교환, arr[b]의 값과 arr[a]의 값을 교환
+    queries.forEach(([a, b]) => {
+        [arr[a], arr[b]] = [arr[b], arr[a]];
+    })
+    return arr;
+}
