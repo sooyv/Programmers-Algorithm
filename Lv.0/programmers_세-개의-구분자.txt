@@ -1,0 +1,16 @@
+function solution(myStr) {
+    // [a|b|c]로 "a", "b", "c" 중 어떤 문자 하나로 문자열을 split()
+    // filter() 메소드를 적용하여 빈 문자열을 제거
+    // answer.length가 true인 경우 answer을 반환, 아니라면 ["EMPTY"]를 반환
+    const answer = myStr.split(/[a|b|c]/).filter(e => e);
+    return answer.length ? answer : ["EMPTY"];
+}
+
+
+// 다른 사람의 코드
+function solution(myStr) {
+    // ^를 사용해서 a-c가 아닌 것을 찾기
+    // ||는 논리 OR 연산자로, 두 개의 피연산자 중 하나 이상이 true일 경우 true를 반환
+    // myStr.match(/[^a-c]+/g)가 null을 반환할 경우, || 연산자 뒤의 ['EMPTY'] 반환
+    return myStr.match(/[^a-c]+/g) || ['EMPTY'];
+}
