@@ -1,0 +1,10 @@
+function solution(arr) {
+    // arr 배열에 첫번째로 등장하는 2의 인덱스 찾기
+    let start = arr.indexOf(2);
+    // arr 배열에 마지막으로 등장하는 2의 인덱스 찾기
+    let last = arr.lastIndexOf(2);
+    
+    // arr 배열에 2가 포함되어있지 않다면, [-1]을 반환, 
+    // 아니라면 arr 배열에 첫번째로 등장하는 2의 인덱스부터 마지막으로 등장하는 2의 인덱스까지 slice 배열을 return
+    return (!arr.includes(2)) ? [-1] : arr.slice(start, last+1);
+}
