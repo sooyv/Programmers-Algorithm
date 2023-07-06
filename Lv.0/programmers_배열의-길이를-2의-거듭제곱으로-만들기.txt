@@ -1,0 +1,34 @@
+function solution(arr) {
+    // for 반복문을 사용하여 i를 0부터 10까지 증가시키면서 반복
+    for (let i = 0; i <= 10; i++) {
+        // now변수에는 Math.pow(2, i)를 사용하여 현재의 2의 거듭제곱 값을 계산
+        let now = Math.pow(2, i);
+        // arr.length === now일 경우, 배열의 길이가 이미 2의 거듭제곱인 경우이기 때문에,
+        // arr를 그대로 return
+        if (arr.length === now) {
+            return arr;
+        // arr.length < now일 경우, 배열의 길이가 2의 거듭제곱보다 작은 경우
+        } else if (arr.length < now) {
+            // now - arr.length를 통해 필요한 0의 개수를 계산
+            // Array(now - arr.length).fill(0)를 사용하여 배열을 0으로 채운다
+            // arr.concat(...)를 사용하여 기존 배열 arr과 새로 생성한 배열을 합치고, 합쳐진 결과를 arr에 할당
+            arr = arr.concat(Array(now - arr.length).fill(0));
+            break;
+        }
+    }
+    return arr;
+}
+
+
+
+// 다른 사람의 풀이
+function solution(arr) {
+    const length = arr.length;
+    // Math.ceil(Math.log2(length))를 사용하여 배열의 길이를 올림한 후, 2의 거듭제곱으로 계산된 값을 totalLength에 할당
+    const totalLength = 2 ** Math.ceil(Math.log2(length));
+    // totalLength - length인 0으로 채워진 배열을 생성하고 이를 ...arr와 함께 새로운 배열에 추가한 값을 return
+    return [...arr, ...new Array(totalLength - length).fill(0)];
+}
+
+// 주어진 숫자의 이진 로그 값을 계산하는 JavaScript 내장 함수 Math.log2()에 대해서 알게 됨.
+// 주어진 숫자를 올림한 결과를 반환하는 Math.ceil()에 대해서 다시한번 알았다.
