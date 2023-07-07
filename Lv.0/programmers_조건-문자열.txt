@@ -1,0 +1,33 @@
+function solution(ineq, eq, n, m) {
+    // n >= m, n <= m, n > m, n < m로 나누어서 구분
+    if (ineq === "<") {
+        if (eq === "=") {
+            return n <= m ? 1 : 0;
+        } else if (eq === "!") {
+            return n < m ? 1 : 0;
+        }
+    } else if (ineq === ">") {
+        if (eq === "=") {
+            return n >= m ? 1 : 0;
+        } else if (eq === "!") {
+            return n > m ? 1 : 0;
+        }
+    }
+}
+
+
+
+// 다른 사람의 풀이
+const operations = {
+  '>=': (n, m) => n >= m,   // n이 m보다 크거나 같은지 여부를 반환
+  '<=': (n, m) => n <= m,   // n이 m보다 작거나 같은지 여부를 반환
+  '>!': (n, m) => n > m,    // n이 m보다 큰지 여부를 반환
+  '<!': (n, m) => n < m,    // n이 m보다 작은지 여부를 반환
+};
+
+function solution(ineq, eq, n, m) {
+    // ineq와 eq를 결합한 문자열을 사용하여 연산자 함수를 선택
+    const op = operations[ineq + eq];   
+    // op 함수를 호출하여 n과 m을 비교한 결과를 숫자로 변환하여 반환
+    return Number(op(n, m));
+}
