@@ -1,0 +1,51 @@
+function solution(sizes) {
+    let widthArr = [];      // 가로 길이만 모을 배열
+    let heigthArr = [];     // 세로 길이만 모을 배열
+    
+    for (let i = 0; i < sizes.length; i++) {
+        if (sizes[i][0] < sizes[i][1]) {       // 가로 길이가 세로 길이보다 작다면
+            const temp = sizes[i][0];          // 긴 길이를 가로 길이로 해준다. (눕혀 수납할 경우)
+            sizes[i][0] = sizes[i][1];
+            sizes[i][1] = temp;
+        }
+        
+        widthArr.push(sizes[i][0]);          // 가로 길이만 widthMaxArr 배열에 push
+        heigthArr.push(sizes[i][1]);         // 세로 길이만 heigthMaxArr 배열에 push
+    }
+    
+    let widthMax = Math.max(...widthArr);    // 가로 길이만 모아둔 widthMaxArr 배열의 최대값을 구함
+    let heigthMax = Math.max(...heigthArr);  // 세로 길이만 모아둔 heigthMaxArr 배열의 최대값을 구함
+
+    return widthMax * heigthMax;        // 그 둘의 곱을 구해, 모든 명함을 수납할 수 있는 크기를 구함
+}
+
+// 풀이 과정
+// 눕혀 수납할 경우를 위해 가로와 세로 길이를 비교해서 긴 길이를 가로 길이로 맞추게 하고,
+// 가로 길이 중 가장 긴 길이와 세로 길이 중 가장 긴 길이를 구해야겠다고 생각.
+
+
+// 다른 사람의 코드 1
+function solution(sizes) {
+    // map()을 통해 각 인덱스의 가로와 세로를 비교
+    // 가로(w)가 세로(h)보다 작다면, 긴 길이를 가로 길이로 변환하고, 그렇지 않다면 그대로
+    const rotated = sizes.map(([w, h]) => w < h ? [h, w] : [w, h]);
+
+    let maxSize = [0, 0];
+    // forEach문을 통해 rotated 배열을 순회하면서, 가장 큰 가로 길이와 세로 길이를 갱신
+    rotated.forEach(([w, h]) => {
+        if (w > maxSize[0]) maxSize[0] = w;
+        // console.log(maxSize[0]);
+        if (h > maxSize[1]) maxSize[1] = h;
+        // console.log(maxSize[1]);
+        
+    });
+    
+    return maxSize[0] * maxSize[1];
+}
+
+
+// 다른 사람의 코드 2
+function solution(sizes) {
+    const [hor, ver] = sizes.reduce(([h, v], [a, b]) => [Math.max(h, Math.max(a, b)), Math.max(v, Math.min(a, b))], [0, 0])
+    return hor * ver;
+}
