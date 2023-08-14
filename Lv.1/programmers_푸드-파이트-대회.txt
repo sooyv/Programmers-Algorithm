@@ -1,0 +1,44 @@
+// 처음 쓴 코드
+function solution(food) {
+    let answer = "";
+    // 0번째 인덱스는 항상 물이기 때문에 첫번째 인덱스부터 시작
+    for (let i = 1; i < food.length; i++) {
+        // 이중 for문으로  양쪽에 똑같이 분배하기 위해 food[i]를 2로 나눈 몫만큼 해당 인덱스를 붙여준다.
+        for (let j = 0; j < Math.floor(food[i] / 2); j++) {     
+            answer += i;
+        }
+    }
+    // answer을 나눈 뒤 뒤집은 것을 오른쪽 음식(rightFood)으로
+    let rightFood = answer.split("").reverse().join("");
+    // answer + 물(0) + rightFood를 붙여준다.
+    answer = answer + "0" + rightFood;
+    return answer;
+}
+
+
+// 수정한 코드
+function solution(food) {
+    let answer = "";
+    for (let i = 1; i < food.length; i++) {
+        // 이중 for문 대신 repeat()를 사용해 간결하게 코드 변경
+        answer += String(i).repeat(Math.floor(food[i] / 2));
+    }
+    // answer과 물("0")과 answer을 뒤집은 것을 한 문자열로 join("")한뒤 return
+    return answer + "0" + [...answer].reverse().join("");
+}
+
+
+
+// 다른 사람의 코드
+function solution(food) {
+    let answer = "";
+    // map()으로 food 배열을 순회. ele = 음식의 양, idx = 인덱스 번호
+    const leftFood = food.map((ele, idx) => {
+        // 음식을 2로 나눈 몫을 foodCount에 할당
+        const foodCount = Math.floor(ele / 2);
+        // idx가 0번째가 아니라면, idx를 foodCount만큼 반복해서 문자를 붙이고, 0이라면 빈 문자열을 붙이고 join("")으로 하나의 문자열로 만듬
+        return idx !== 0 ? String(idx).repeat(foodCount) : '';
+    }).join("");
+    // concat()을 이용해 leftFood에 문자 '0'을 붙이고, leftFood문자열을 뒤집은 문자열을 붙여 return
+    return leftFood.concat('0').concat(leftFood.split('').reverse().join(""));
+}
