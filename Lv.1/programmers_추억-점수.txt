@@ -1,0 +1,46 @@
+// 객체를 이용하여 풀이
+function solution(name, yearning, photo) {
+    var answer = [];
+    
+    // 객체 생성
+    let obj = {};
+    // map을 통해 name배열의 사람들의 이름과 yearning배열의 그리움 점수를 키와 값으로 obj객체에 넣어줌
+    name.map((people, idx) => {
+        obj[people] = yearning[idx];
+    });
+    // console.log(obj)
+    
+    // 이중 for문을 통해 photo배열을 순회하며,
+    for (let i = 0; i < photo.length; i++) {
+        let longingScore = 0;
+        for (let j = 0; j < photo[i].length; j++) {
+            // obj객체에 해당 이름이 있다면, 그리움 점수를 longingScore에 합산
+            if (obj[photo[i][j]]) {
+                longingScore += obj[photo[i][j]];
+            }
+        }
+        // 합산한 그리움 점수를 answer 배열에 push
+        answer.push(longingScore);
+    }
+    
+    // 결과로 그리움 점수를 return
+    return answer;
+}
+
+
+
+// Map을 사용하여 풀이
+function solution(name, yearning, photo) {
+    // 이름과 그리움 점수를 저장할 Map객체 생성
+    const map = new Map();
+    // for문을 통해, name 배열의 요소와 yearning 배열의 요소를 연결하여 Map 객체에 저장
+    for (let i = 0; i < name.length; i++) {
+        map.set(name[i], yearning[i])
+    }
+  
+    // map을 통해 photo의 요소를 순회하며, 각 요소가 Map객체에서 가져올수 있다면 이전값(acc)에 가져온 값(map.get(cur))을 더하고,
+    // 가져올 수 없다면, 이전값(acc)를 반환
+    return photo.map(ele => ele.reduce((acc, cur) => map.get(cur) ? acc + map.get(cur) : acc, 0));
+}
+
+// Map을 사용한 풀이가 가독성이 더욱 높고, 이름을 검색할때 더 빠른 동작이 가능하다.
