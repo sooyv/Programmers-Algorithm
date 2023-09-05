@@ -1,0 +1,30 @@
+function solution(s) {
+    var answer = [];
+    // for문을 통해 문자열 s의 각 문자열을 순회
+    for (let i = 0; i < s.length; i++) {
+        // slice()를 통해 현재 문자까지의 부분 문자열을 생성
+        let before = s.slice(0, i);
+        // before 문자열에서 찾으려는 문자가 가장 뒤에 있는 인덱스를 구함.
+        // 만약 이전 문자열에 현재 문자가 없다면 -1을 결과에 추가하고,
+        // 그렇지 않으면 현재 위치 i에서 이전 문자(s[i])가 마지막으로 나타난 위치를 빼서 거리를 계산
+        answer.push(before.lastIndexOf(s[i]) == -1 ? -1 : i - before.lastIndexOf(s[i]));
+    };
+    return answer;
+}
+
+
+// 다른 사람의 코드
+function solution(s) {
+    // 문자와 해당 문자가 마지막으로 등장한 위치를 저장하기 위한 빈 객체 hash를 생성
+    const hash = {};
+
+    // s를 배열 형태로 분해 한 후, map()을 이용해 순회
+    return [...s].map((e, i) => {
+        // 만약 hash 객체에 현재 문자 e가 이미 등록되어 있지 않다면, 이 문자가 처음 등장하는 경우이므로 -1을 거리로 설정
+        // 아니라면 현재 문자 e가 hash 객체에 등록되어 있는 것이므로, 이전에 등장한 위치 hash[e]와 현재 위치 i를 빼서 거리를 계산
+        let answer = hash[e] == undefined ? -1 : i - hash[e];
+        // hash 객체에 현재 문자 e를 키로 하고, 해당 문자의 위치 i를 값으로 등록
+        hash[e] = i;
+        return answer;
+    });
+}
