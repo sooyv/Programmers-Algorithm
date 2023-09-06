@@ -1,0 +1,33 @@
+// 첫번째 풀이
+function solution(a, b, n) {
+    var coke = 0;
+    while (n >= a) {
+        coke += Math.floor(n / a);
+        n = Math.floor(n / a) + (n % a);
+    }
+    return coke;
+}
+// 첫번째 풀이에서는 예시 테스트만 생각을 해서 a개를 가져다줬을때 항상 1개를 받는 것으로 생각했다.
+// 제출 후 채점하기에서 풀이 오류를 알았고, 이후 두번째 풀이로 수정했다.
+
+
+
+// 두번째 풀이
+function solution(a, b, n) {
+    var coke = 0;
+    // while 문으로 n이 콜라를 받기 위해 마트에 주어야 하는 병 수 a보다 작을때 종료
+    while (n >= a) {
+        // coke에 총 n개의 콜라를 주었을때 a개를 가져다주면 마트가 b개를 주는 것을 계산하여 더함.
+        coke += Math.floor(n / a) * b;
+        // 받은 콜라와 남은 콜라를 계산하여 n을 갱신
+        n = Math.floor(n / a) * b + (n % a);
+    }
+    return coke;
+}
+// 콜라 a개를 가져다줬을때, b개를 주기때문에 받는 콜라를 알기위해서 b를 곱해주었다.
+
+
+
+
+// 다른 사람의 풀이
+solution = (a, b, n) => Math.floor(Math.max(n - b, 0) / (a - b)) * b;
