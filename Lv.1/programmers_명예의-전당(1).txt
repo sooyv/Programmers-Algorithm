@@ -1,0 +1,56 @@
+// for문으로 풀이
+function solution(k, score) {
+    // 명예의 전당을 검사할 배열
+    var HOF = [];
+    // 최하위 점수를 return할 배열
+    let answer = [];
+
+    // score 배열을 돌면서 HOF배열에 각 요소를 넣어줌
+    for (let i = 0; i < score.length; i++) {
+        HOF.push(score[i]);
+        // 배열을 높은 점수부터 내림차순으로 정렬 후, 
+        // slice 메소드를 통해 명예의 전당에 오르는 k개의 점수를 구함
+        // 명예의 전당의 최하위 점수를 pop()을 통해 구하고, 이 점수는 answer 배열에 넣어준다.
+        answer.push(HOF.sort((a, b) => b - a).slice(0, k).pop());
+    }
+    return answer;
+}
+
+
+// map으로 풀이
+function solution(k, score) {
+    let hof = [];
+    let answer = [];
+    score.map((num, idx) => {
+        hof.push(num);
+        answer.push(hof.sort((a, b) => b - a).slice(0, k).pop());
+    });
+    return answer;
+}
+
+
+// 다른 사람의 풀이
+function solution(k, score) {
+    const stack = [];
+    
+    // score의 요소들을 reduce()를 이용해 더해줌
+    return score.reduce((a, c) => {
+        // 만약 stack 배열의 길이가 k보다 작다면, stack 배열에 현재 요소 c를 push
+        // push후 오름차순 정렬해준다.
+        if(stack.length < k) {
+            stack.push(c);
+            stack.sort((a, b) => a - b);
+        }
+        // stack 배열의 길이가 k보다 크다면,
+        // sort를 통해 stack배열을 오름차순 정렬한 후
+        // shift()를 통해 배열의 맨 처음 요소를 뺀다
+        else {
+            stack.push(c);
+            stack.sort((a, b) => a - b);
+            stack.shift();
+        }
+        // a 배열에 stack의 첫번째 요소를 더하고, a배열을 반환
+        a.push(stack[0]);
+        return a;
+    },[]);
+}
