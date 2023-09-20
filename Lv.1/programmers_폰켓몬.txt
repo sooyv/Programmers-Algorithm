@@ -1,0 +1,27 @@
+// 첫번째 풀이
+function solution(nums) {
+    // 최대 nums.length / 2 마리를 가질 수 있음
+    // nums의 원소를 중복 제거
+    let set = new Set(nums);
+    
+    // 중복을 제거하고 남은 원소의 갯수가 nums.length / 2보다 크다면, nums.length / 2를 Return
+    // 아니라면 중복을 제거하고 남은 원소의 갯수를 RETURN 
+    return [...set].length > nums.length / 2 ? nums.length / 2 : [...set].length;
+}
+
+
+// 코드 정리하기
+function solution(nums) {
+  const max = nums.length / 2;
+  const arr = [...new Set(nums)];
+
+  return arr.length > max ? max : arr.length;
+}
+
+
+// filter와 indexOf를 이용하여 중복 제거하기
+function solution(nums) {
+    let max = nums.length / 2;
+    let dupl = nums.filter((e, i) => nums.indexOf(e) == i);
+    return dupl.length > max ? max : dupl.length;
+}
